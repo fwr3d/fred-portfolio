@@ -52,16 +52,10 @@ export default function Home() {
               title="Shipyard"
               description="Component generator for developer tools. Describe a UI component, get production-ready HTML/CSS/JS instantly."
               tags={["Next.js", "AI", "Developer Tools"]}
-              githubUrl="#"
-              demoUrl="#"
+              githubUrl="https://github.com/fwr3d/shipyard"
+              demoUrl="https://shipyard-v1.vercel.app/"
             />
-            <ProjectCard
-              title="Cortex"
-              description="AI productivity app for students. Write notes, generate citation-grounded flashcards, organize your classes. Offline-first."
-              tags={["Next.js", "Supabase", "Education"]}
-              githubUrl="#"
-              demoUrl="#"
-            />
+            
           </div>
         </section>
 
