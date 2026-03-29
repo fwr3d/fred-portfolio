@@ -55,7 +55,26 @@ export default function Home() {
               githubUrl="https://github.com/fwr3d/shipyard"
               demoUrl="https://shipyard-v1.vercel.app/"
             />
-            
+            <ProjectCard
+              title="Midas-pad"
+              description="An AI-first writing workspace for shaping rough ideas into cleaner, more structured drafts."
+              tags={["AI", "Writing", "Productivity"]}
+            />
+            <ProjectCard
+              title="Draftroom"
+              description="A collaborative space for refining ideas, iterating on content, and organizing early-stage project thinking."
+              tags={["Collaboration", "Workflow", "Web App"]}
+            />
+            <ProjectCard
+              title="Penny-wise"
+              description="A personal finance tool focused on helping users track spending, spot patterns, and make smarter budgeting decisions."
+              tags={["Finance", "Analytics", "Consumer"]}
+            />
+            <ProjectCard
+              title="Atlas"
+              description="A project hub for mapping information, connecting context, and keeping complex work organized in one place."
+              tags={["Knowledge", "Organization", "Productivity"]}
+            />
           </div>
         </section>
 
@@ -124,8 +143,8 @@ function ProjectCard({
   title: string;
   description: string;
   tags: string[];
-  githubUrl: string;
-  demoUrl: string;
+  githubUrl?: string;
+  demoUrl?: string;
 }) {
   return (
     <div
@@ -135,24 +154,28 @@ function ProjectCard({
       <div className="flex items-start justify-between gap-2">
         <h3 className="font-mono text-sm font-semibold text-gh-text">{title}</h3>
         <div className="flex items-center gap-2 shrink-0">
-          <a
-            href={githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="text-gh-muted hover:text-gh-accent transition-colors duration-150"
-            aria-label={`${title} on GitHub`}
-          >
-            <GitHubIcon size={15} />
-          </a>
-          <a
-            href={demoUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="text-gh-muted hover:text-gh-accent transition-colors duration-150"
-            aria-label={`${title} live demo`}
-          >
-            <ExternalIcon size={15} />
-          </a>
+          {githubUrl ? (
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-gh-muted hover:text-gh-accent transition-colors duration-150"
+              aria-label={`${title} on GitHub`}
+            >
+              <GitHubIcon size={15} />
+            </a>
+          ) : null}
+          {demoUrl ? (
+            <a
+              href={demoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-gh-muted hover:text-gh-accent transition-colors duration-150"
+              aria-label={`${title} live demo`}
+            >
+              <ExternalIcon size={15} />
+            </a>
+          ) : null}
         </div>
       </div>
       <p className="text-xs text-gh-muted leading-relaxed flex-1">{description}</p>
