@@ -4,8 +4,6 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <div className="max-w-2xl mx-auto px-6 py-16 flex flex-col gap-14">
-
-        {/* ── Hero ── */}
         <section className="flex flex-col gap-4 fade-up fade-up-1">
           <div
             className="w-16 h-16 rounded-full border border-gh-border flex items-center justify-center font-mono text-sm text-gh-muted select-none shrink-0"
@@ -42,7 +40,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Projects ── */}
         <section className="flex flex-col gap-4 fade-up fade-up-2">
           <p className="text-[0.65rem] uppercase tracking-[0.12em] text-gh-muted font-mono">
             projects
@@ -79,25 +76,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Currently ── */}
         <section className="flex flex-col gap-4 fade-up fade-up-3">
           <p className="text-[0.65rem] uppercase tracking-[0.12em] text-gh-muted font-mono">
             currently
           </p>
           <div className="flex flex-col gap-2 pl-4 border-l border-gh-border">
-            <p className="text-sm text-gh-text">
-              Building Shipyard in public{" "}
-              <a
-                href="https://x.com/fbr0792"
-                target="_blank"
-                rel="noreferrer"
-                className="text-gh-muted hover:text-gh-accent transition-colors duration-150"
-              >
-                →
-              </a>
-            </p>
-
-            {/* Purdue line */}
             <p className="text-sm text-gh-text flex items-center gap-2 flex-wrap">
               Incoming CS @{" "}
               <span className="inline-flex items-center gap-1.5">
@@ -106,20 +89,9 @@ export default function Home() {
                 , fall 2026
               </span>
             </p>
-
-            <p className="text-sm text-gh-text">
-              Open to summer internships in SF{" "}
-              <a
-                href="mailto:federicobarroc@gmail.com"
-                className="text-gh-muted hover:text-gh-accent transition-colors duration-150"
-              >
-                →
-              </a>
-            </p>
           </div>
         </section>
 
-        {/* ── Footer ── */}
         <footer className="text-center pt-2 fade-up fade-up-4">
           <a
             href="mailto:federicobarroc@gmail.com"
@@ -128,7 +100,6 @@ export default function Home() {
             federicobarroc@gmail.com
           </a>
         </footer>
-
       </div>
     </main>
   );
