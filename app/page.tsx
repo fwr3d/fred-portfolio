@@ -15,7 +15,7 @@ export default function Home() {
           </div>
 
           <h1 className="font-mono text-[1.85rem] leading-tight text-gh-text">
-            Federico &ldquo;fred&rdquo; Barrera
+            Federico Barrera
           </h1>
 
           <p className="text-sm text-gh-muted">I build AI-native developer tools</p>
@@ -56,28 +56,25 @@ export default function Home() {
               demoUrl="https://shipyard-v1.vercel.app/"
             />
             <ProjectCard
-              title="Midas-pad"
-              description="A lightweight notepad web app for capturing ideas quickly in a clean, distraction-free workspace."
-              tags={["Web App", "Notes", "Productivity"]}
-              githubUrl="https://github.com/fwr3d/Midas-Pad"
-            />
-            <ProjectCard
               title="Draftroom"
               description="A fantasy football draft simulator built to help users practice picks, test strategies, and prepare for draft day."
               tags={["Fantasy Football", "Simulation", "Sports"]}
               githubUrl="https://github.com/fwr3d/draftroom"
+              demoUrl="https://fwr3d.github.io/draftroom"
             />
             <ProjectCard
               title="Pennywise"
               description="A budget manager for tracking spending, organizing categories, and staying on top of personal finances."
               tags={["Finance", "Budgeting", "Web App"]}
               githubUrl="https://github.com/fwr3d/Pennywise"
+              demoUrl="https://pennywise-v1.vercel.app"
             />
             <ProjectCard
               title="Atlas"
               description="A personal dashboard that brings together tasks and notes in one place to keep day-to-day work organized."
               tags={["Dashboard", "Tasks", "Notes"]}
               githubUrl="https://github.com/fwr3d/Atlas"
+              demoUrl="https://atlas-sooty-psi.vercel.app"
             />
           </div>
         </section>

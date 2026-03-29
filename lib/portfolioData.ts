@@ -8,7 +8,7 @@ export type Project = {
 };
 
 export const SITE = {
-	name: 'Fred',
+	name: 'Federico Barrera',
 	headline: "Software developer building web apps and UI.",
 	about:
 		"I build web apps with JavaScript and TypeScript, mostly using React and Next.js. I care about clean UI, smooth interactions, and code that is easy to maintain. I’m looking for internship or freelance opportunities where I can ship real features and keep improving as an engineer.",
