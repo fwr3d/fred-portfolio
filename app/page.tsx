@@ -16,7 +16,9 @@ export default function Home() {
             Federico Barrera
           </h1>
 
-          <p className="text-sm text-gh-muted">I build AI-native developer tools</p>
+          <p className="text-sm text-gh-muted">
+            I build developer-focused web apps and tools
+          </p>
 
           <div className="flex flex-wrap gap-3">
             <a
