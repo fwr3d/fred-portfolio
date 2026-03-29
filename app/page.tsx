@@ -57,23 +57,27 @@ export default function Home() {
             />
             <ProjectCard
               title="Midas-pad"
-              description="An AI-first writing workspace for shaping rough ideas into cleaner, more structured drafts."
-              tags={["AI", "Writing", "Productivity"]}
+              description="A lightweight notepad web app for capturing ideas quickly in a clean, distraction-free workspace."
+              tags={["Web App", "Notes", "Productivity"]}
+              githubUrl="https://github.com/fwr3d/Midas-Pad"
             />
             <ProjectCard
               title="Draftroom"
-              description="A collaborative space for refining ideas, iterating on content, and organizing early-stage project thinking."
-              tags={["Collaboration", "Workflow", "Web App"]}
+              description="A fantasy football draft simulator built to help users practice picks, test strategies, and prepare for draft day."
+              tags={["Fantasy Football", "Simulation", "Sports"]}
+              githubUrl="https://github.com/fwr3d/draftroom"
             />
             <ProjectCard
-              title="Penny-wise"
-              description="A personal finance tool focused on helping users track spending, spot patterns, and make smarter budgeting decisions."
-              tags={["Finance", "Analytics", "Consumer"]}
+              title="Pennywise"
+              description="A budget manager for tracking spending, organizing categories, and staying on top of personal finances."
+              tags={["Finance", "Budgeting", "Web App"]}
+              githubUrl="https://github.com/fwr3d/Pennywise"
             />
             <ProjectCard
               title="Atlas"
-              description="A project hub for mapping information, connecting context, and keeping complex work organized in one place."
-              tags={["Knowledge", "Organization", "Productivity"]}
+              description="A personal dashboard that brings together tasks and notes in one place to keep day-to-day work organized."
+              tags={["Dashboard", "Tasks", "Notes"]}
+              githubUrl="https://github.com/fwr3d/Atlas"
             />
           </div>
         </section>
