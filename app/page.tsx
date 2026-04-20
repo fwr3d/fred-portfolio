@@ -33,22 +33,6 @@ export default function Home() {
     <div className="min-h-screen bg-bg text-text">
       <div className="max-w-[960px] mx-auto px-6 md:px-10">
 
-        {/* ── Editor tabs bar ── */}
-        <div className="reveal d-0 flex items-stretch border-b border-border text-mono text-[0.62rem]"
-             style={{ fontFamily: "var(--font-mono)" }}>
-          <div className="flex items-center gap-2 px-5 py-3 border-r border-b-0 border-border bg-surface text-amber"
-               style={{ borderBottom: "1px solid #1C1C1C", marginBottom: "-1px" }}>
-            <span className="w-1.5 h-1.5 rounded-full bg-amber inline-block" />
-            portfolio.tsx
-          </div>
-          <div className="flex items-center gap-2 px-5 py-3 border-r border-border text-muted">
-            README.md
-          </div>
-          <div className="ml-auto flex items-center px-5 text-muted tracking-wider">
-            fwr3d
-          </div>
-        </div>
-
         {/* ── Nav ── */}
         <nav className="reveal d-1 flex items-center justify-between py-5 border-b border-border">
           <span style={{ fontFamily: "var(--font-mono)", color: "#F5A623", fontSize: "0.95rem" }}>
