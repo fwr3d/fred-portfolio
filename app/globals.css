@@ -43,13 +43,21 @@ body::after {
   z-index: 9999;
 }
 
-/* Reveal animation */
+/* Reveal animation — triggered by .in-view added via IntersectionObserver */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(12px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-.reveal { opacity: 0; animation: fade-up 0.55s ease-out forwards; }
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.reveal.in-view {
+  animation: fade-up 0.55s ease-out forwards;
+}
+
 .d-0 { animation-delay: 0ms; }
 .d-1 { animation-delay: 70ms; }
 .d-2 { animation-delay: 140ms; }
