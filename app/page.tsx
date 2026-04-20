@@ -282,31 +282,6 @@ function ProjectRow({
         </div>
       </div>
 
-      {/* Screenshot preview — revealed on hover via CSS */}
-      <div className="project-preview px-5 pb-5">
-        <div className="rounded-lg border border-border overflow-hidden">
-          {/* Fake browser chrome */}
-          <div className="browser-bar">
-            <span className="browser-dot" style={{ background: "#FF5F57" }} />
-            <span className="browser-dot" style={{ background: "#FEBC2E" }} />
-            <span className="browser-dot" style={{ background: "#28C840" }} />
-            <span
-              className="flex-1 mx-3 bg-bg rounded px-3 py-1 text-muted truncate"
-              style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem" }}
-            >
-              {demo ?? github}
-            </span>
-          </div>
-          {/* Live embed */}
-          <iframe
-            src={demo ?? github}
-            title={`${title} live preview`}
-            loading="lazy"
-            className="w-full border-0 block"
-            style={{ height: "420px", pointerEvents: "none" }}
-          />
-        </div>
-      </div>
     </div>
   );
 }

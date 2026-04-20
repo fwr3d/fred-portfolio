@@ -86,31 +86,3 @@ body::after {
   transform: translateY(0);
 }
 
-/* Browser frame chrome */
-.browser-bar {
-  background: #252525;
-  border-bottom: 1px solid #333;
-  padding: 7px 12px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 8px 8px 0 0;
-}
-.browser-dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-}
-
-/* Image preview expand */
-.project-preview {
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.22s ease, transform 0.22s ease;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.22s ease, transform 0.22s ease, max-height 0.3s ease;
-}
-.project-row:hover .project-preview {
-  max-height: 400px;
-}
