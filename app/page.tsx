@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const PROJECTS = [
   {
     index: "01",
@@ -9,7 +7,6 @@ const PROJECTS = [
     tags: ["next.js", "ai", "dev-tools"],
     github: "https://github.com/fwr3d/shipyard",
     demo: "https://shipyard-v1.vercel.app/",
-    screenshot: "/projects/shipyard.png",
   },
   {
     index: "02",
@@ -19,7 +16,6 @@ const PROJECTS = [
     tags: ["react", "simulation", "sports"],
     github: "https://github.com/fwr3d/draftroom",
     demo: "https://fwr3d.github.io/draftroom",
-    screenshot: "/projects/draftroom.png",
   },
   {
     index: "03",
@@ -29,7 +25,6 @@ const PROJECTS = [
     tags: ["finance", "budgeting", "web-app"],
     github: "https://github.com/fwr3d/Pennywise",
     demo: "https://pennywise-v1.vercel.app",
-    screenshot: "/projects/pennywise.png",
   },
   {
     index: "04",
@@ -39,7 +34,6 @@ const PROJECTS = [
     tags: ["dashboard", "tasks", "notes"],
     github: "https://github.com/fwr3d/Atlas",
     demo: "https://atlas-sooty-psi.vercel.app",
-    screenshot: "/projects/atlas.png",
   },
 ];
 
@@ -213,7 +207,6 @@ function ProjectRow({
   tags,
   github,
   demo,
-  screenshot,
 }: {
   delay: string;
   index: string;
@@ -222,7 +215,6 @@ function ProjectRow({
   tags: string[];
   github: string;
   demo?: string;
-  screenshot: string;
 }) {
   return (
     <div
@@ -305,16 +297,14 @@ function ProjectRow({
               {demo ?? github}
             </span>
           </div>
-          {/* Screenshot */}
-          <div className="relative w-full" style={{ aspectRatio: "16/9", background: "#111" }}>
-            <Image
-              src={screenshot}
-              alt={`${title} screenshot`}
-              fill
-              className="object-cover object-top"
-              sizes="(max-width: 960px) 100vw, 960px"
-            />
-          </div>
+          {/* Live embed */}
+          <iframe
+            src={demo ?? github}
+            title={`${title} live preview`}
+            loading="lazy"
+            className="w-full border-0 block"
+            style={{ height: "420px", pointerEvents: "none" }}
+          />
         </div>
       </div>
     </div>
