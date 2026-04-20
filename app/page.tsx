@@ -133,6 +133,45 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ── Tech Stack ── */}
+        <section className="py-10 border-t border-border">
+          <div
+            className="reveal d-6 flex items-center gap-2 mb-5 text-muted"
+            style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem" }}
+          >
+            <span className="text-amber text-base">#</span>
+            tech_stack.ts
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+            {[
+              { name: "TypeScript", type: "language" },
+              { name: "JavaScript", type: "language" },
+              { name: "React",      type: "framework" },
+              { name: "Next.js",    type: "framework" },
+              { name: "HTML/CSS",   type: "language" },
+              { name: "Tailwind",   type: "styling" },
+              { name: "Node.js",    type: "runtime" },
+              { name: "Git",        type: "tooling" },
+            ].map((tech, i) => (
+              <div
+                key={tech.name}
+                className={`reveal d-${Math.min(6 + i, 8)} rounded border border-border bg-surface px-4 py-3 flex items-center justify-between gap-2`}
+              >
+                <span className="font-medium text-text" style={{ fontSize: "0.82rem" }}>
+                  {tech.name}
+                </span>
+                <span
+                  className="text-muted shrink-0"
+                  style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", letterSpacing: "0.08em" }}
+                >
+                  {tech.type}
+                </span>
+              </div>
+            ))}
+          </div>
+        </section>
+
         {/* ── Projects ── */}
         <section className="py-10 pb-20">
           <div
