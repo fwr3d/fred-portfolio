@@ -43,7 +43,62 @@ body::after {
   z-index: 9999;
 }
 
-/* Reveal animation — triggered by .in-view added via IntersectionObserver */
+/* ── Full-page scroll snap ── */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.snap-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  padding-top: 57px; /* nav height */
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .snap-section { padding: 0 40px; }
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  color: #444;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(5px); }
+}
+
+/* ── Reveal animation ── */
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -54,6 +109,8 @@ body::after {
   transform: translateY(16px);
 }
 
+/* Snap sections trigger reveal for all children when section enters view */
+.snap-section.in-view .reveal,
 .reveal.in-view {
   animation: fade-up 0.55s ease-out forwards;
 }

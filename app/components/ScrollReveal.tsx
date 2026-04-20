@@ -4,23 +4,28 @@ import { useEffect } from "react";
 
 export default function ScrollReveal() {
   useEffect(() => {
-    const elements = document.querySelectorAll<HTMLElement>(".reveal");
+    // Observe snap sections — add .in-view when they enter, triggering child reveals
+    const sections = document.querySelectorAll<HTMLElement>(".snap-section");
+    // Also observe standalone .reveal elements (for hero which is pre-visible)
+    const standalones = document.querySelectorAll<HTMLElement>(".reveal.in-view");
 
-    const observer = new IntersectionObserver(
+    const sectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            (entry.target as HTMLElement).classList.add("in-view");
-            observer.unobserve(entry.target);
+            entry.target.classList.add("in-view");
+          } else {
+            // Remove so re-entering re-animates
+            entry.target.classList.remove("in-view");
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.4 }
     );
 
-    elements.forEach((el) => observer.observe(el));
+    sections.forEach((s) => sectionObserver.observe(s));
 
-    return () => observer.disconnect();
+    return () => sectionObserver.disconnect();
   }, []);
 
   return null;
