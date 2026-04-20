@@ -1,15 +1,6 @@
 const PROJECTS = [
   {
     index: "01",
-    title: "Shipyard",
-    description:
-      "Component generator for developer tools. Describe a UI component, get production-ready HTML/CSS/JS instantly.",
-    tags: ["next.js", "ai", "dev-tools"],
-    github: "https://github.com/fwr3d/shipyard",
-    demo: "https://shipyard-v1.vercel.app/",
-  },
-  {
-    index: "02",
     title: "Draftroom",
     description:
       "A fantasy football draft simulator to practice picks, test strategies, and prepare for draft day.",
@@ -18,7 +9,7 @@ const PROJECTS = [
     demo: "https://fwr3d.github.io/draftroom",
   },
   {
-    index: "03",
+    index: "02",
     title: "Pennywise",
     description:
       "A budget manager for tracking spending, organizing categories, and staying on top of personal finances.",
@@ -27,7 +18,7 @@ const PROJECTS = [
     demo: "https://pennywise-v1.vercel.app",
   },
   {
-    index: "04",
+    index: "03",
     title: "Atlas",
     description:
       "A personal dashboard bringing together tasks and notes in one place to keep day-to-day work organized.",
@@ -168,7 +159,7 @@ export default function Home() {
             selected_work.ts
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {PROJECTS.map((p, i) => (
               <ProjectRow key={p.title} {...p} delay={`d-${6 + i}`} />
             ))}
@@ -218,70 +209,57 @@ function ProjectRow({
 }) {
   return (
     <div
-      className={`reveal ${delay} project-row rounded-lg border border-border bg-surface transition-all duration-200 overflow-hidden cursor-default`}
+      className={`reveal ${delay} project-row rounded-lg border border-border bg-surface transition-all duration-200 p-5 flex flex-col gap-3 cursor-default`}
     >
-      {/* Row header */}
-      <div className="flex gap-4 md:gap-6 p-5 items-start">
-        {/* Index */}
+      {/* Top: index + links */}
+      <div className="flex items-center justify-between">
         <span
-          className="shrink-0 pt-0.5 w-6 leading-none"
-          style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "rgba(245,166,35,0.55)" }}
+          style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", color: "rgba(245,166,35,0.55)" }}
         >
           {index}
         </span>
-
-        {/* Text body */}
-        <div className="flex-1 min-w-0">
-          <h3 className="font-semibold tracking-[-0.015em] mb-1.5 leading-snug" style={{ fontSize: "0.98rem" }}>
-            {title}
-          </h3>
-          <p className="text-muted leading-relaxed mb-3 max-w-[480px]" style={{ fontSize: "0.78rem" }}>
-            {description}
-          </p>
-          <div className="flex flex-wrap gap-1.5">
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="text-teal rounded px-2 py-0.5"
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "0.58rem",
-                  letterSpacing: "0.04em",
-                  background: "rgba(45,212,191,0.08)",
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Links */}
         <div
-          className="flex flex-col gap-1.5 shrink-0 pt-0.5"
+          className="flex gap-3"
           style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem" }}
         >
-          <a
-            href={github}
-            target="_blank"
-            rel="noreferrer"
-            className="text-muted hover:text-amber transition-colors flex items-center gap-1"
-          >
+          <a href={github} target="_blank" rel="noreferrer" className="text-muted hover:text-amber transition-colors">
             github ↗
           </a>
           {demo && (
-            <a
-              href={demo}
-              target="_blank"
-              rel="noreferrer"
-              className="text-muted hover:text-amber transition-colors flex items-center gap-1"
-            >
+            <a href={demo} target="_blank" rel="noreferrer" className="text-muted hover:text-amber transition-colors">
               demo ↗
             </a>
           )}
         </div>
       </div>
 
+      {/* Title + description */}
+      <div className="flex-1">
+        <h3 className="font-semibold tracking-[-0.015em] mb-2 leading-snug" style={{ fontSize: "0.98rem" }}>
+          {title}
+        </h3>
+        <p className="text-muted leading-relaxed" style={{ fontSize: "0.78rem" }}>
+          {description}
+        </p>
+      </div>
+
+      {/* Tags */}
+      <div className="flex flex-wrap gap-1.5">
+        {tags.map((tag) => (
+          <span
+            key={tag}
+            className="text-teal rounded px-2 py-0.5"
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "0.58rem",
+              letterSpacing: "0.04em",
+              background: "rgba(45,212,191,0.08)",
+            }}
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
