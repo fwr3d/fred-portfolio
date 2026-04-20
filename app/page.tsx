@@ -1,152 +1,210 @@
+import Image from "next/image";
+
 const PROJECTS = [
   {
     index: "01",
     title: "Shipyard",
     description:
       "Component generator for developer tools. Describe a UI component, get production-ready HTML/CSS/JS instantly.",
-    tags: ["Next.js", "AI", "Developer Tools"],
+    tags: ["next.js", "ai", "dev-tools"],
     github: "https://github.com/fwr3d/shipyard",
     demo: "https://shipyard-v1.vercel.app/",
+    screenshot: "/projects/shipyard.png",
   },
   {
     index: "02",
     title: "Draftroom",
     description:
-      "A fantasy football draft simulator built to help users practice picks, test strategies, and prepare for draft day.",
-    tags: ["React", "Simulation", "Sports"],
+      "A fantasy football draft simulator to practice picks, test strategies, and prepare for draft day.",
+    tags: ["react", "simulation", "sports"],
     github: "https://github.com/fwr3d/draftroom",
     demo: "https://fwr3d.github.io/draftroom",
+    screenshot: "/projects/draftroom.png",
   },
   {
     index: "03",
     title: "Pennywise",
     description:
       "A budget manager for tracking spending, organizing categories, and staying on top of personal finances.",
-    tags: ["Finance", "Budgeting", "Web App"],
+    tags: ["finance", "budgeting", "web-app"],
     github: "https://github.com/fwr3d/Pennywise",
     demo: "https://pennywise-v1.vercel.app",
+    screenshot: "/projects/pennywise.png",
   },
   {
     index: "04",
     title: "Atlas",
     description:
-      "A personal dashboard that brings together tasks and notes in one place to keep day-to-day work organized.",
-    tags: ["Dashboard", "Tasks", "Notes"],
+      "A personal dashboard bringing together tasks and notes in one place to keep day-to-day work organized.",
+    tags: ["dashboard", "tasks", "notes"],
     github: "https://github.com/fwr3d/Atlas",
     demo: "https://atlas-sooty-psi.vercel.app",
+    screenshot: "/projects/atlas.png",
   },
 ];
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-paper text-ink">
-      {/* ── Noise texture overlay ── */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none fixed inset-0 z-50"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E")`,
-          backgroundSize: "200px 200px",
-          opacity: 0.022,
-        }}
-      />
+    <div className="min-h-screen bg-bg text-text">
+      <div className="max-w-[960px] mx-auto px-6 md:px-10">
 
-      <div className="max-w-[66rem] mx-auto px-6 md:px-10 lg:px-16">
-        {/* ── Header ── */}
-        <header className="reveal d-0 flex items-center justify-between py-5 border-b border-border">
-          <span className="font-serif text-sm italic text-ink-light select-none">
-            Federico Barrera
+        {/* ── Editor tabs bar ── */}
+        <div className="reveal d-0 flex items-stretch border-b border-border text-mono text-[0.62rem]"
+             style={{ fontFamily: "var(--font-mono)" }}>
+          <div className="flex items-center gap-2 px-5 py-3 border-r border-b-0 border-border bg-surface text-amber"
+               style={{ borderBottom: "1px solid #1C1C1C", marginBottom: "-1px" }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-amber inline-block" />
+            portfolio.tsx
+          </div>
+          <div className="flex items-center gap-2 px-5 py-3 border-r border-border text-muted">
+            README.md
+          </div>
+          <div className="ml-auto flex items-center px-5 text-muted tracking-wider">
+            fwr3d
+          </div>
+        </div>
+
+        {/* ── Nav ── */}
+        <nav className="reveal d-1 flex items-center justify-between py-5 border-b border-border">
+          <span style={{ fontFamily: "var(--font-mono)", color: "#F5A623", fontSize: "0.95rem" }}>
+            fb<span style={{ color: "#666660" }}>@portfolio</span>
           </span>
-          <nav className="flex items-center gap-5 md:gap-7">
+          <div className="flex gap-0 border border-border rounded-md overflow-hidden">
             {[
-              { label: "GitHub", href: "https://github.com/fwr3d", external: true },
-              { label: "X", href: "https://x.com/fbr0792", external: true },
-              { label: "Email", href: "mailto:federicobarroc@gmail.com", external: false },
-            ].map((link) => (
+              { label: "github", href: "https://github.com/fwr3d" },
+              { label: "x.com",  href: "https://x.com/fbr0792" },
+              { label: "email",  href: "mailto:federicobarroc@gmail.com" },
+            ].map((l, i, arr) => (
               <a
-                key={link.label}
-                href={link.href}
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noreferrer" : undefined}
-                className="text-[0.65rem] tracking-[0.15em] uppercase text-ink-light hover:text-rust transition-colors duration-150"
+                key={l.label}
+                href={l.href}
+                target={l.label !== "email" ? "_blank" : undefined}
+                rel={l.label !== "email" ? "noreferrer" : undefined}
+                className="text-muted hover:text-amber hover:bg-[rgba(245,166,35,0.08)] transition-colors duration-150 px-4 py-2"
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.68rem",
+                  letterSpacing: "0.04em",
+                  borderRight: i < arr.length - 1 ? "1px solid #2A2A2A" : "none",
+                }}
               >
-                {link.label}
+                {l.label}
               </a>
             ))}
-          </nav>
-        </header>
+          </div>
+        </nav>
 
         {/* ── Hero ── */}
-        <section className="pt-16 pb-20 md:pt-24 md:pb-28">
-          <p className="reveal d-1 text-[0.65rem] tracking-[0.22em] uppercase text-ink-light mb-8">
-            Developer · Builder · Student
-          </p>
+        <section className="py-14 md:py-20 grid grid-cols-1 md:grid-cols-[1fr_200px] gap-10 items-center border-b border-border">
+          <div>
+            <div
+              className="reveal d-2 text-muted mb-5 flex items-center gap-2"
+              style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem" }}
+            >
+              <span className="text-amber">$</span> whoami
+            </div>
 
-          <h1
-            className="reveal d-2 font-serif leading-[0.88] tracking-[-0.015em] text-ink mb-10"
-            style={{ fontSize: "clamp(3rem, 10.5vw, 7.5rem)" }}
+            <h1
+              className="reveal d-3 font-bold leading-[1.02] tracking-[-0.03em] mb-5 text-text"
+              style={{ fontSize: "clamp(42px, 7vw, 66px)" }}
+            >
+              Federico<br />
+              <span className="text-amber">Barrera</span>
+            </h1>
+
+            <p
+              className="reveal d-4 text-muted leading-[1.72] mb-8 max-w-[380px]"
+              style={{ fontSize: "0.88rem" }}
+            >
+              I build developer-focused web apps and tools — clean interfaces,
+              real functionality, code that ships.
+            </p>
+
+            <div className="reveal d-5 flex gap-3 flex-wrap">
+              <a
+                href="https://github.com/fwr3d"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-bold text-bg hover:opacity-90 transition-opacity"
+                style={{ background: "#F5A623", fontFamily: "var(--font-mono)", fontSize: "0.78rem", letterSpacing: "0.03em" }}
+              >
+                github ↗
+              </a>
+              <a
+                href="mailto:federicobarroc@gmail.com"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-text border border-border hover:border-[rgba(245,166,35,0.4)] hover:text-amber transition-colors"
+                style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", letterSpacing: "0.03em" }}
+              >
+                email
+              </a>
+            </div>
+          </div>
+
+          {/* Status card */}
+          <div
+            className="reveal d-5 rounded-lg border border-border p-5 bg-surface"
+            style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem" }}
           >
-            Federico
-            <br />
-            <em className="not-italic text-rust">Barrera</em>
-          </h1>
-
-          <div className="reveal d-3 flex flex-col sm:flex-row sm:items-end gap-6 sm:gap-12">
-            <p className="text-[0.875rem] text-ink-light leading-[1.8] max-w-[21rem]">
-              I build developer-focused web apps and tools — clean UI, real
-              functionality, maintainable code.
-            </p>
-            <p className="text-[0.63rem] tracking-[0.18em] uppercase text-ink-light flex items-center gap-2.5 shrink-0">
-              <span className="inline-block w-6 h-px bg-rust" />
-              Incoming CS @ Purdue, Fall 2026
-            </p>
+            <div className="text-muted tracking-widest uppercase mb-3 text-[0.55rem]">// status</div>
+            {[
+              ["role",   "student"],
+              ["school", "Purdue"],
+              ["start",  "Fall 2026"],
+              ["focus",  "CS"],
+            ].map(([k, v]) => (
+              <div key={k} className="flex justify-between py-2 border-b border-border last:border-b-0 text-muted">
+                <span>{k}</span>
+                <span className="text-teal">{v}</span>
+              </div>
+            ))}
+            <div className="flex items-center gap-2 mt-4 text-teal">
+              <span className="w-2 h-2 rounded-full bg-teal pulse-dot inline-block shrink-0" />
+              open to work
+            </div>
           </div>
         </section>
 
         {/* ── Projects ── */}
-        <section className="pb-24">
-          <div className="reveal d-4 flex items-center justify-between pb-3 border-b border-border mb-0">
-            <span className="text-[0.63rem] tracking-[0.22em] uppercase text-ink-light">
-              Selected Work
-            </span>
-            <span className="text-[0.63rem] text-ink-light" style={{ opacity: 0.45 }}>
-              {PROJECTS.length} projects
-            </span>
+        <section className="py-10 pb-20">
+          <div
+            className="reveal d-6 flex items-center gap-2 mb-5 text-muted"
+            style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem" }}
+          >
+            <span className="text-amber text-base">#</span>
+            selected_work.ts
           </div>
 
-          {PROJECTS.map((p, i) => (
-            <ProjectRow key={p.title} {...p} delay={`d-${5 + i}`} />
-          ))}
+          <div className="flex flex-col gap-3">
+            {PROJECTS.map((p, i) => (
+              <ProjectRow key={p.title} {...p} delay={`d-${6 + i}`} />
+            ))}
+          </div>
         </section>
 
         {/* ── Footer ── */}
-        <footer className="border-t border-border py-6 flex flex-wrap items-center justify-between gap-4">
-          <span className="font-serif italic text-sm text-ink-light">fwr3d</span>
-          <div className="flex flex-wrap items-center gap-5">
-            <a
-              href="mailto:federicobarroc@gmail.com"
-              className="text-[0.68rem] text-ink-light hover:text-rust transition-colors duration-150"
-            >
+        <footer
+          className="border-t border-border py-5 flex flex-wrap items-center justify-between gap-4 text-muted"
+          style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem" }}
+        >
+          <span>© 2026 Federico Barrera</span>
+          <div className="flex gap-5">
+            <a href="mailto:federicobarroc@gmail.com" className="hover:text-amber transition-colors">
               federicobarroc@gmail.com
             </a>
-            <a
-              href="https://github.com/fwr3d"
-              target="_blank"
-              rel="noreferrer"
-              className="text-[0.68rem] text-ink-light hover:text-rust transition-colors duration-150"
-            >
+            <a href="https://github.com/fwr3d" target="_blank" rel="noreferrer" className="hover:text-amber transition-colors">
               github.com/fwr3d
             </a>
           </div>
         </footer>
+
       </div>
     </div>
   );
 }
 
-/* ────────────────────────────────────────────
-   Project Row
-──────────────────────────────────────────── */
+/* ─────────────────────────────────────────────
+   ProjectRow
+───────────────────────────────────────────── */
 function ProjectRow({
   delay,
   index,
@@ -155,6 +213,7 @@ function ProjectRow({
   tags,
   github,
   demo,
+  screenshot,
 }: {
   delay: string;
   index: string;
@@ -163,90 +222,101 @@ function ProjectRow({
   tags: string[];
   github: string;
   demo?: string;
+  screenshot: string;
 }) {
   return (
     <div
-      className={`reveal ${delay} project-row flex gap-5 md:gap-8 py-6 border-b border-border transition-colors duration-200 cursor-default`}
+      className={`reveal ${delay} project-row rounded-lg border border-border bg-surface transition-all duration-200 overflow-hidden cursor-default`}
     >
-      {/* Index number */}
-      <span
-        className="text-[0.6rem] tabular-nums pt-1 w-5 shrink-0 leading-none font-sans"
-        style={{ color: "rgba(184,69,26,0.45)" }}
-      >
-        {index}
-      </span>
+      {/* Row header */}
+      <div className="flex gap-4 md:gap-6 p-5 items-start">
+        {/* Index */}
+        <span
+          className="shrink-0 pt-0.5 w-6 leading-none"
+          style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", color: "rgba(245,166,35,0.55)" }}
+        >
+          {index}
+        </span>
 
-      {/* Body */}
-      <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+        {/* Text body */}
         <div className="flex-1 min-w-0">
-          <h3 className="font-serif text-[1.15rem] text-ink mb-1.5 leading-snug">
+          <h3 className="font-semibold tracking-[-0.015em] mb-1.5 leading-snug" style={{ fontSize: "0.98rem" }}>
             {title}
           </h3>
-          <p className="text-[0.78rem] text-ink-light leading-relaxed mb-3 max-w-[26rem]">
+          <p className="text-muted leading-relaxed mb-3 max-w-[480px]" style={{ fontSize: "0.78rem" }}>
             {description}
           </p>
-          {/* Tags */}
-          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-            {tags.map((tag, i) => (
+          <div className="flex flex-wrap gap-1.5">
+            {tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[0.58rem] tracking-[0.1em] uppercase"
-                style={{ color: "rgba(122,115,108,0.65)" }}
+                className="text-teal rounded px-2 py-0.5"
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "0.58rem",
+                  letterSpacing: "0.04em",
+                  background: "rgba(45,212,191,0.08)",
+                }}
               >
                 {tag}
-                {i < tags.length - 1 && (
-                  <span className="ml-2" style={{ color: "rgba(221,216,209,1)" }}>
-                    ·
-                  </span>
-                )}
               </span>
             ))}
           </div>
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-3 sm:pt-1 shrink-0">
+        <div
+          className="flex flex-col gap-1.5 shrink-0 pt-0.5"
+          style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem" }}
+        >
           <a
             href={github}
             target="_blank"
             rel="noreferrer"
-            className="text-ink-light hover:text-rust transition-colors duration-150"
-            aria-label={`${title} on GitHub`}
+            className="text-muted hover:text-amber transition-colors flex items-center gap-1"
           >
-            <GitHubIcon />
+            github ↗
           </a>
           {demo && (
             <a
               href={demo}
               target="_blank"
               rel="noreferrer"
-              className="text-ink-light hover:text-rust transition-colors duration-150"
-              aria-label={`${title} live demo`}
+              className="text-muted hover:text-amber transition-colors flex items-center gap-1"
             >
-              <ExternalIcon />
+              demo ↗
             </a>
           )}
         </div>
       </div>
+
+      {/* Screenshot preview — revealed on hover via CSS */}
+      <div className="project-preview px-5 pb-5">
+        <div className="rounded-lg border border-border overflow-hidden">
+          {/* Fake browser chrome */}
+          <div className="browser-bar">
+            <span className="browser-dot" style={{ background: "#FF5F57" }} />
+            <span className="browser-dot" style={{ background: "#FEBC2E" }} />
+            <span className="browser-dot" style={{ background: "#28C840" }} />
+            <span
+              className="flex-1 mx-3 bg-bg rounded px-3 py-1 text-muted truncate"
+              style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem" }}
+            >
+              {demo ?? github}
+            </span>
+          </div>
+          {/* Screenshot */}
+          <div className="relative w-full" style={{ aspectRatio: "16/9", background: "#111" }}>
+            <Image
+              src={screenshot}
+              alt={`${title} screenshot`}
+              fill
+              className="object-cover object-top"
+              sizes="(max-width: 960px) 100vw, 960px"
+            />
+          </div>
+        </div>
+      </div>
     </div>
-  );
-}
-
-/* ────────────────────────────────────────────
-   Icons
-──────────────────────────────────────────── */
-function GitHubIcon() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
-    </svg>
-  );
-}
-
-function ExternalIcon() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-      <path d="M3.75 2h3.5a.75.75 0 010 1.5h-3.5a.25.25 0 00-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 00.25-.25v-3.5a.75.75 0 011.5 0v3.5A1.75 1.75 0 0112.25 14h-8.5A1.75 1.75 0 012 12.25v-8.5C2 2.784 2.784 2 3.75 2zm6.854-1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1z" />
-    </svg>
   );
 }
