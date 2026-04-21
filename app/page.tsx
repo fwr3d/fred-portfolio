@@ -98,27 +98,31 @@ export default function Home() {
           <div className="section-inner">
             <div className="grid grid-cols-1 md:grid-cols-[1fr_200px] gap-10 items-center w-full max-w-[960px]">
               <div>
+                {/* prompt — slides in from top */}
                 <div
-                  className="reveal in-view text-muted mb-5 flex items-center gap-2"
+                  className="from-top d-0 text-muted mb-5 flex items-center gap-2"
                   style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem" }}
                 >
                   <span className="text-amber">$</span> whoami
                 </div>
+                {/* name — slides in from left */}
                 <h1
-                  className="reveal in-view font-bold leading-[1.02] tracking-[-0.03em] mb-5 text-text"
-                  style={{ fontSize: "clamp(42px, 7vw, 72px)", animationDelay: "60ms" }}
+                  className="from-left d-1 font-bold leading-[1.02] tracking-[-0.03em] mb-5 text-text"
+                  style={{ fontSize: "clamp(42px, 7vw, 72px)" }}
                 >
                   Federico<br />
                   <span className="text-amber">Barrera</span>
                 </h1>
+                {/* tagline — slides in from left, delayed */}
                 <p
-                  className="reveal in-view text-muted leading-[1.72] mb-8 max-w-[380px]"
-                  style={{ fontSize: "0.88rem", animationDelay: "120ms" }}
+                  className="from-left d-2 text-muted leading-[1.72] mb-8 max-w-[380px]"
+                  style={{ fontSize: "0.88rem" }}
                 >
                   I build developer-focused web apps and tools — clean interfaces,
                   real functionality, code that ships.
                 </p>
-                <div className="reveal in-view flex gap-3 flex-wrap" style={{ animationDelay: "180ms" }}>
+                {/* buttons — pop in from bottom */}
+                <div className="from-bottom d-3 flex gap-3 flex-wrap">
                   <a
                     href="https://github.com/fwr3d"
                     target="_blank"
@@ -138,10 +142,10 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Status card */}
+              {/* Status card — slides in from right */}
               <div
-                className="reveal in-view rounded-lg border border-border p-5 bg-surface"
-                style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", animationDelay: "200ms" }}
+                className="from-right d-2 rounded-lg border border-border p-5 bg-surface"
+                style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem" }}
               >
                 <div className="text-muted tracking-widest uppercase mb-3 text-[0.55rem]">// status</div>
                 {[
@@ -172,31 +176,37 @@ export default function Home() {
         <section id="stack" className="snap-section">
           <div className="section-inner">
             <div className="w-full max-w-[960px]">
+              {/* label — from top */}
               <div
-                className="reveal flex items-center gap-2 mb-8 text-muted"
+                className="from-top d-0 flex items-center gap-2 mb-8 text-muted"
                 style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem" }}
               >
                 <span className="text-amber text-base">#</span>
                 tech_stack.ts
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {TECH.map((tech, i) => (
-                  <div
-                    key={tech.name}
-                    className="reveal rounded border border-border bg-surface px-4 py-3 flex items-center justify-between gap-2"
-                    style={{ animationDelay: `${i * 60}ms` }}
-                  >
-                    <span className="font-medium text-text" style={{ fontSize: "0.82rem" }}>
-                      {tech.name}
-                    </span>
-                    <span
-                      className="text-muted shrink-0"
-                      style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", letterSpacing: "0.08em" }}
+                {TECH.map((tech, i) => {
+                  // Alternate directions: left column from left, right from right, middle pop
+                  const col = i % 4;
+                  const dir = col === 0 || col === 1 ? "from-left" : "from-right";
+                  return (
+                    <div
+                      key={tech.name}
+                      className={`${dir} rounded border border-border bg-surface px-4 py-3 flex items-center justify-between gap-2`}
+                      style={{ animationDelay: `${Math.floor(i / 4) * 80 + (i % 4) * 60}ms` }}
                     >
-                      {tech.type}
-                    </span>
-                  </div>
-                ))}
+                      <span className="font-medium text-text" style={{ fontSize: "0.82rem" }}>
+                        {tech.name}
+                      </span>
+                      <span
+                        className="text-muted shrink-0"
+                        style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", letterSpacing: "0.08em" }}
+                      >
+                        {tech.type}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -207,18 +217,20 @@ export default function Home() {
           <div className="section-inner">
             <div className="w-full max-w-[960px]">
               <div
-                className="reveal flex items-center gap-2 mb-8 text-muted"
+                className="from-top d-0 flex items-center gap-2 mb-8 text-muted"
                 style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem" }}
               >
                 <span className="text-amber text-base">#</span>
                 selected_work.ts
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                {PROJECTS.map((p, i) => (
+                {PROJECTS.map((p, i) => {
+                  const dirs = ["from-left", "from-bottom", "from-right"];
+                  return (
                   <div
                     key={p.title}
-                    className="reveal project-row rounded-lg border border-border bg-surface p-5 flex flex-col gap-3 cursor-default transition-all duration-200"
-                    style={{ animationDelay: `${i * 80}ms` }}
+                    className={`${dirs[i % 3]} project-row rounded-lg border border-border bg-surface p-5 flex flex-col gap-3 cursor-default transition-all duration-200`}
+                    style={{ animationDelay: `${i * 100}ms` }}
                   >
                     <div className="flex items-center justify-between">
                       <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", color: "rgba(245,166,35,0.55)" }}>
@@ -255,12 +267,13 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
 
               {/* Footer inside last section */}
               <div
-                className="mt-10 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-4 text-muted"
+                className="from-bottom d-4 mt-10 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-4 text-muted"
                 style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem" }}
               >
                 <span>© 2026 Federico Barrera</span>
