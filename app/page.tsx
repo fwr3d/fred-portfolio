@@ -45,7 +45,7 @@ export default function Home() {
       {/* ── Fixed Nav ── */}
       <nav
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-4 border-b border-border"
-        style={{ background: "rgba(14,14,14,0.85)", backdropFilter: "blur(12px)" }}
+        style={{ background: "rgba(8,14,13,0.88)", backdropFilter: "blur(12px)" }}
       >
         <span className="font-semibold tracking-tight text-text" style={{ fontSize: "0.95rem" }}>
           Federico <span className="text-amber">Barrera</span>
@@ -75,7 +75,7 @@ export default function Home() {
           <a
             href="mailto:federicobarroc@gmail.com"
             className="text-sm text-bg font-medium rounded-md px-4 py-1.5 hover:opacity-90 transition-opacity"
-            style={{ background: "#F5A623" }}
+            style={{ background: "#10B981" }}
           >
             Email
           </a>
@@ -110,7 +110,7 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-bg hover:opacity-90 transition-opacity"
-                    style={{ background: "#F5A623" }}
+                    style={{ background: "#10B981" }}
                   >
                     GitHub ↗
                   </a>
@@ -226,7 +226,7 @@ export default function Home() {
                           <span
                             key={tag}
                             className="text-xs text-teal rounded-md px-2 py-0.5"
-                            style={{ background: "rgba(45,212,191,0.08)", fontSize: "0.7rem" }}
+                            style={{ background: "rgba(16,185,129,0.1)", fontSize: "0.7rem" }}
                           >
                             {tag}
                           </span>

@@ -1,15 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg:          #0E0E0E;
-  --color-surface:     #161616;
-  --color-surface2:    #1C1C1C;
-  --color-border:      #2A2A2A;
-  --color-border-amber: rgba(245,166,35,0.22);
-  --color-text:        #E8E8E0;
-  --color-muted:       #666660;
-  --color-amber:       #F5A623;
-  --color-teal:        #2DD4BF;
+  --color-bg:          #080E0D;
+  --color-surface:     #0F1A18;
+  --color-surface2:    #162320;
+  --color-border:      #1E3330;
+  --color-text:        #E4EDEA;
+  --color-muted:       #527068;
+  --color-amber:       #10B981;
+  --color-teal:        #34D399;
 
   --font-sans: var(--font-grotesk), system-ui, sans-serif;
   --font-mono: var(--font-mono-var, var(--font-mono)), "Courier New", monospace;
@@ -154,8 +153,8 @@ html, body {
 
 /* Status pulse */
 @keyframes pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.4); }
-  50%       { opacity: 0.7; box-shadow: 0 0 0 4px rgba(45, 212, 191, 0); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
 }
 .pulse-dot {
   animation: pulse 2s ease-in-out infinite;
@@ -207,8 +206,8 @@ html, body {
 
 /* Project row hover */
 .project-row:hover {
-  border-color: rgba(245, 166, 35, 0.22) !important;
-  background: #1a1a1a;
+  border-color: rgba(16, 185, 129, 0.25) !important;
+  background: #132220;
 }
 .project-row:hover .project-preview {
   opacity: 1;
