@@ -28,6 +28,33 @@ const PROJECTS = [
   },
 ];
 
+const POSTS = [
+  {
+    title: "Post title goes here",
+    date: "Apr 2026",
+    summary: "A short description of what this post is about. What did you learn, build, or figure out?",
+    tag: "Thoughts",
+  },
+  {
+    title: "Another post title",
+    date: "Mar 2026",
+    summary: "A short description of what this post is about. What did you learn, build, or figure out?",
+    tag: "Build Log",
+  },
+  {
+    title: "One more thing you wrote about",
+    date: "Feb 2026",
+    summary: "A short description of what this post is about. What did you learn, build, or figure out?",
+    tag: "Dev",
+  },
+];
+
+const LEARNING = [
+  { topic: "Topic you're learning", detail: "What specifically — a course, project, concept?" },
+  { topic: "Another thing", detail: "Where you're learning it or why" },
+  { topic: "One more", detail: "Context goes here" },
+];
+
 const TECH = [
   { name: "TypeScript", type: "Language" },
   { name: "JavaScript", type: "Language" },
@@ -52,7 +79,7 @@ export default function Home() {
         </span>
 
         <div className="hidden md:flex items-center gap-7">
-          {[["home", "#home"], ["stack", "#stack"], ["work", "#work"]].map(([label, href]) => (
+          {[["home", "#home"], ["stack", "#stack"], ["work", "#work"], ["writing", "#writing"], ["learning", "#learning"]].map(([label, href]) => (
             <a
               key={label}
               href={href}
@@ -237,7 +264,82 @@ export default function Home() {
                 })}
               </div>
 
-              <div className="from-bottom d-4 mt-10 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-4 text-muted text-xs">
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 4: Writing ── */}
+        <section id="writing" className="snap-section">
+          <div className="section-inner">
+            <div className="w-full max-w-[960px]">
+              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-8" style={{ letterSpacing: "0.18em" }}>
+                Writing
+              </p>
+
+              <div className="flex flex-col gap-3">
+                {POSTS.map((post, i) => (
+                  <div
+                    key={post.title}
+                    className={`from-${i % 2 === 0 ? "left" : "right"} group rounded-xl border border-border bg-surface p-5 flex flex-col sm:flex-row sm:items-start gap-4 cursor-default transition-colors duration-200 hover:border-[rgba(16,185,129,0.3)]`}
+                    style={{ animationDelay: `${i * 80}ms` }}
+                  >
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span
+                          className="text-xs px-2 py-0.5 rounded-md text-emerald-400"
+                          style={{ background: "rgba(16,185,129,0.1)", fontSize: "0.68rem" }}
+                        >
+                          {post.tag}
+                        </span>
+                        <span className="text-xs text-muted">{post.date}</span>
+                      </div>
+                      <h3 className="font-semibold tracking-tight mb-1.5 group-hover:text-amber transition-colors" style={{ fontSize: "1rem" }}>
+                        {post.title}
+                      </h3>
+                      <p className="text-muted text-sm leading-relaxed">{post.summary}</p>
+                    </div>
+                    <span className="text-muted group-hover:text-amber transition-colors text-lg shrink-0 mt-0.5">→</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 5: Currently Learning ── */}
+        <section id="learning" className="snap-section">
+          <div className="section-inner">
+            <div className="w-full max-w-[960px]">
+              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-2" style={{ letterSpacing: "0.18em" }}>
+                Currently Learning
+              </p>
+              <p className="from-top d-1 text-muted text-sm mb-10 max-w-sm">
+                What I'm exploring, reading, or building right now.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {LEARNING.map((item, i) => {
+                  const dirs = ["from-left", "from-bottom", "from-right"];
+                  return (
+                    <div
+                      key={item.topic}
+                      className={`${dirs[i % 3]} rounded-xl border border-border bg-surface p-5`}
+                      style={{ animationDelay: `${i * 100}ms` }}
+                    >
+                      <div className="w-8 h-8 rounded-lg bg-[rgba(16,185,129,0.12)] flex items-center justify-center mb-4">
+                        <span className="text-amber font-bold text-sm">{String(i + 1).padStart(2, "0")}</span>
+                      </div>
+                      <h3 className="font-semibold tracking-tight mb-2" style={{ fontSize: "0.95rem" }}>
+                        {item.topic}
+                      </h3>
+                      <p className="text-muted text-sm leading-relaxed">{item.detail}</p>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Footer in last section */}
+              <div className="from-bottom d-4 mt-12 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-4 text-muted text-xs">
                 <span>© 2026 Federico Barrera</span>
                 <div className="flex gap-5">
                   <a href="mailto:federicobarroc@gmail.com" className="hover:text-text transition-colors">
