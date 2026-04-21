@@ -27,21 +27,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scanline overlay */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.025) 2px,
-    rgba(0, 0, 0, 0.025) 4px
-  );
-  pointer-events: none;
-  z-index: 9999;
-}
 
 /* ── Full-page scroll snap ── */
 html, body {
@@ -86,11 +71,11 @@ html, body {
   bottom: -40px;
   left: 50%;
   transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
   color: #444;
   animation: bounce 2s ease-in-out infinite;
+  white-space: nowrap;
 }
 
 @keyframes bounce {

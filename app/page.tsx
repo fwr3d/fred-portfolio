@@ -4,7 +4,7 @@ const PROJECTS = [
     title: "Draftroom",
     description:
       "A fantasy football draft simulator to practice picks, test strategies, and prepare for draft day.",
-    tags: ["react", "simulation", "sports"],
+    tags: ["React", "Simulation", "Sports"],
     github: "https://github.com/fwr3d/draftroom",
     demo: "https://fwr3d.github.io/draftroom",
   },
@@ -13,7 +13,7 @@ const PROJECTS = [
     title: "Pennywise",
     description:
       "A budget manager for tracking spending, organizing categories, and staying on top of personal finances.",
-    tags: ["finance", "budgeting", "web-app"],
+    tags: ["Finance", "Budgeting", "Web App"],
     github: "https://github.com/fwr3d/Pennywise",
     demo: "https://pennywise-v1.vercel.app",
   },
@@ -22,21 +22,21 @@ const PROJECTS = [
     title: "Atlas",
     description:
       "A personal dashboard bringing together tasks and notes in one place to keep day-to-day work organized.",
-    tags: ["dashboard", "tasks", "notes"],
+    tags: ["Dashboard", "Tasks", "Notes"],
     github: "https://github.com/fwr3d/Atlas",
     demo: "https://atlas-sooty-psi.vercel.app",
   },
 ];
 
 const TECH = [
-  { name: "TypeScript", type: "language" },
-  { name: "JavaScript", type: "language" },
-  { name: "React",      type: "framework" },
-  { name: "Next.js",    type: "framework" },
-  { name: "HTML/CSS",   type: "language" },
-  { name: "Tailwind",   type: "styling" },
-  { name: "Node.js",    type: "runtime" },
-  { name: "Git",        type: "tooling" },
+  { name: "TypeScript", type: "Language" },
+  { name: "JavaScript", type: "Language" },
+  { name: "React",      type: "Framework" },
+  { name: "Next.js",    type: "Framework" },
+  { name: "HTML / CSS", type: "Language" },
+  { name: "Tailwind",   type: "Styling" },
+  { name: "Node.js",    type: "Runtime" },
+  { name: "Git",        type: "Tooling" },
 ];
 
 export default function Home() {
@@ -47,46 +47,38 @@ export default function Home() {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-4 border-b border-border"
         style={{ background: "rgba(14,14,14,0.85)", backdropFilter: "blur(12px)" }}
       >
-        <span style={{ fontFamily: "var(--font-mono)", color: "#F5A623", fontSize: "0.95rem" }}>
-          fb<span style={{ color: "#666660" }}>@portfolio</span>
+        <span className="font-semibold tracking-tight text-text" style={{ fontSize: "0.95rem" }}>
+          Federico <span className="text-amber">Barrera</span>
         </span>
 
-        {/* Section dots */}
-        <div className="hidden md:flex items-center gap-6">
-          {["home", "stack", "work"].map((id) => (
+        <div className="hidden md:flex items-center gap-7">
+          {[["home", "#home"], ["stack", "#stack"], ["work", "#work"]].map(([label, href]) => (
             <a
-              key={id}
-              href={`#${id}`}
-              className="text-muted hover:text-amber transition-colors duration-150"
-              style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem", letterSpacing: "0.1em" }}
+              key={label}
+              href={href}
+              className="text-muted hover:text-text transition-colors duration-150 text-sm capitalize tracking-wide"
             >
-              {id}
+              {label}
             </a>
           ))}
         </div>
 
-        <div className="flex gap-0 border border-border rounded-md overflow-hidden">
-          {[
-            { label: "github", href: "https://github.com/fwr3d" },
-
-            { label: "email",  href: "mailto:federicobarroc@gmail.com" },
-          ].map((l, i, arr) => (
-            <a
-              key={l.label}
-              href={l.href}
-              target={l.label !== "email" ? "_blank" : undefined}
-              rel={l.label !== "email" ? "noreferrer" : undefined}
-              className="text-muted hover:text-amber hover:bg-[rgba(245,166,35,0.08)] transition-colors duration-150 px-4 py-2"
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: "0.68rem",
-                letterSpacing: "0.04em",
-                borderRight: i < arr.length - 1 ? "1px solid #2A2A2A" : "none",
-              }}
-            >
-              {l.label}
-            </a>
-          ))}
+        <div className="flex gap-2">
+          <a
+            href="https://github.com/fwr3d"
+            target="_blank"
+            rel="noreferrer"
+            className="text-sm text-muted hover:text-text border border-border rounded-md px-4 py-1.5 hover:border-[#444] transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href="mailto:federicobarroc@gmail.com"
+            className="text-sm text-bg font-medium rounded-md px-4 py-1.5 hover:opacity-90 transition-opacity"
+            style={{ background: "#F5A623" }}
+          >
+            Email
+          </a>
         </div>
       </nav>
 
@@ -96,79 +88,65 @@ export default function Home() {
         {/* ── Section 1: Hero ── */}
         <section id="home" className="snap-section">
           <div className="section-inner">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_200px] gap-10 items-center w-full max-w-[960px]">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-12 items-center w-full max-w-[960px]">
               <div>
-                {/* prompt — slides in from top */}
-                <div
-                  className="from-top d-0 text-muted mb-5 flex items-center gap-2"
-                  style={{ fontFamily: "var(--font-mono)", fontSize: "0.68rem" }}
-                >
-                  <span className="text-amber">$</span> whoami
-                </div>
-                {/* name — slides in from left */}
+                <p className="from-top d-0 text-sm text-muted mb-4 tracking-wide uppercase" style={{ fontSize: "0.7rem", letterSpacing: "0.14em" }}>
+                  Developer · Builder · Student
+                </p>
                 <h1
-                  className="from-left d-1 font-bold leading-[1.02] tracking-[-0.03em] mb-5 text-text"
+                  className="from-left d-1 font-bold leading-[1.02] tracking-tight mb-5 text-text"
                   style={{ fontSize: "clamp(42px, 7vw, 72px)" }}
                 >
                   Federico<br />
                   <span className="text-amber">Barrera</span>
                 </h1>
-                {/* tagline — slides in from left, delayed */}
-                <p
-                  className="from-left d-2 text-muted leading-[1.72] mb-8 max-w-[380px]"
-                  style={{ fontSize: "0.88rem" }}
-                >
+                <p className="from-left d-2 text-muted leading-relaxed mb-8 max-w-[380px]" style={{ fontSize: "0.95rem" }}>
                   I build developer-focused web apps and tools — clean interfaces,
                   real functionality, code that ships.
                 </p>
-                {/* buttons — pop in from bottom */}
                 <div className="from-bottom d-3 flex gap-3 flex-wrap">
                   <a
                     href="https://github.com/fwr3d"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-bold text-bg hover:opacity-90 transition-opacity"
-                    style={{ background: "#F5A623", fontFamily: "var(--font-mono)", fontSize: "0.78rem", letterSpacing: "0.03em" }}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-bg hover:opacity-90 transition-opacity"
+                    style={{ background: "#F5A623" }}
                   >
-                    github ↗
+                    GitHub ↗
                   </a>
                   <a
                     href="mailto:federicobarroc@gmail.com"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-md text-text border border-border hover:border-[rgba(245,166,35,0.4)] hover:text-amber transition-colors"
-                    style={{ fontFamily: "var(--font-mono)", fontSize: "0.78rem", letterSpacing: "0.03em" }}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm text-text border border-border hover:border-[#444] transition-colors"
                   >
-                    email
+                    Get in touch
                   </a>
                 </div>
               </div>
 
-              {/* Status card — slides in from right */}
-              <div
-                className="from-right d-2 rounded-lg border border-border p-5 bg-surface"
-                style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem" }}
-              >
-                <div className="text-muted tracking-widest uppercase mb-3 text-[0.55rem]">// status</div>
+              {/* Status card */}
+              <div className="from-right d-2 rounded-xl border border-border p-5 bg-surface">
+                <p className="text-xs text-muted uppercase tracking-widest mb-4" style={{ fontSize: "0.6rem" }}>
+                  Status
+                </p>
                 {[
-                  ["role",   "student"],
-                  ["school", "Purdue"],
-                  ["start",  "Fall 2026"],
-                  ["focus",  "CS"],
+                  ["Role",   "Student"],
+                  ["School", "Purdue"],
+                  ["Start",  "Fall 2026"],
+                  ["Focus",  "CS"],
                 ].map(([k, v]) => (
-                  <div key={k} className="flex justify-between py-2 border-b border-border last:border-b-0 text-muted">
-                    <span>{k}</span>
-                    <span className="text-teal">{v}</span>
+                  <div key={k} className="flex justify-between py-2.5 border-b border-border last:border-b-0">
+                    <span className="text-muted text-sm">{k}</span>
+                    <span className="text-teal text-sm font-medium">{v}</span>
                   </div>
                 ))}
-                <div className="flex items-center gap-2 mt-4 text-teal">
+                <div className="flex items-center gap-2 mt-4 text-teal text-sm">
                   <span className="w-2 h-2 rounded-full bg-teal pulse-dot inline-block shrink-0" />
-                  open to work
+                  Open to work
                 </div>
               </div>
             </div>
 
-            <div className="scroll-hint">
-              scroll <span className="text-amber">↓</span>
-            </div>
+            <div className="scroll-hint">scroll ↓</div>
           </div>
         </section>
 
@@ -176,34 +154,27 @@ export default function Home() {
         <section id="stack" className="snap-section" style={{ overflow: "hidden" }}>
           <div className="section-inner">
             <div className="w-full">
-              {/* label */}
-              <div
-                className="from-top d-0 flex items-center gap-2 mb-10 text-muted max-w-[960px] mx-auto px-6 md:px-10"
-                style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem" }}
-              >
-                <span className="text-amber text-base">#</span>
-                tech_stack.ts
-              </div>
+              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted text-center mb-10 max-w-[960px] mx-auto px-6" style={{ letterSpacing: "0.18em" }}>
+                Tech Stack
+              </p>
 
-              {/* Row 1 — scrolls left */}
               <div className="from-bottom d-1 marquee-outer mb-3">
                 <div className="marquee-track">
                   {[...TECH, ...TECH].map((tech, i) => (
                     <div key={i} className="marquee-chip">
-                      <span className="text-text font-medium" style={{ fontSize: "0.85rem" }}>{tech.name}</span>
-                      <span className="text-amber" style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem" }}>{tech.type}</span>
+                      <span className="text-text font-medium" style={{ fontSize: "0.88rem" }}>{tech.name}</span>
+                      <span className="text-amber text-xs">{tech.type}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Row 2 — scrolls right (reverse) */}
               <div className="from-bottom d-2 marquee-outer">
                 <div className="marquee-track marquee-reverse">
                   {[...TECH.slice().reverse(), ...TECH.slice().reverse()].map((tech, i) => (
                     <div key={i} className="marquee-chip">
-                      <span className="text-text font-medium" style={{ fontSize: "0.85rem" }}>{tech.name}</span>
-                      <span className="text-amber" style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem" }}>{tech.type}</span>
+                      <span className="text-text font-medium" style={{ fontSize: "0.88rem" }}>{tech.name}</span>
+                      <span className="text-amber text-xs">{tech.type}</span>
                     </div>
                   ))}
                 </div>
@@ -216,72 +187,63 @@ export default function Home() {
         <section id="work" className="snap-section">
           <div className="section-inner">
             <div className="w-full max-w-[960px]">
-              <div
-                className="from-top d-0 flex items-center gap-2 mb-8 text-muted"
-                style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem" }}
-              >
-                <span className="text-amber text-base">#</span>
-                selected_work.ts
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-8" style={{ letterSpacing: "0.18em" }}>
+                Selected Work
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {PROJECTS.map((p, i) => {
                   const dirs = ["from-left", "from-bottom", "from-right"];
                   return (
-                  <div
-                    key={p.title}
-                    className={`${dirs[i % 3]} project-row rounded-lg border border-border bg-surface p-5 flex flex-col gap-3 cursor-default transition-all duration-200`}
-                    style={{ animationDelay: `${i * 100}ms` }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem", color: "rgba(245,166,35,0.55)" }}>
-                        {p.index}
-                      </span>
-                      <div className="flex gap-3" style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem" }}>
-                        <a href={p.github} target="_blank" rel="noreferrer" className="text-muted hover:text-amber transition-colors">
-                          github ↗
-                        </a>
-                        {p.demo && (
-                          <a href={p.demo} target="_blank" rel="noreferrer" className="text-muted hover:text-amber transition-colors">
-                            demo ↗
+                    <div
+                      key={p.title}
+                      className={`${dirs[i % 3]} project-row rounded-xl border border-border bg-surface p-5 flex flex-col gap-3 transition-all duration-200`}
+                      style={{ animationDelay: `${i * 100}ms` }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs text-muted">{p.index}</span>
+                        <div className="flex gap-3 text-xs text-muted">
+                          <a href={p.github} target="_blank" rel="noreferrer" className="hover:text-amber transition-colors">
+                            GitHub ↗
                           </a>
-                        )}
+                          {p.demo && (
+                            <a href={p.demo} target="_blank" rel="noreferrer" className="hover:text-amber transition-colors">
+                              Demo ↗
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="font-semibold tracking-tight mb-2" style={{ fontSize: "1rem" }}>
+                          {p.title}
+                        </h3>
+                        <p className="text-muted leading-relaxed text-sm">
+                          {p.description}
+                        </p>
+                      </div>
+                      <div className="flex flex-wrap gap-1.5">
+                        {p.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs text-teal rounded-md px-2 py-0.5"
+                            style={{ background: "rgba(45,212,191,0.08)", fontSize: "0.7rem" }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
                       </div>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-semibold tracking-[-0.015em] mb-2 leading-snug" style={{ fontSize: "0.98rem" }}>
-                        {p.title}
-                      </h3>
-                      <p className="text-muted leading-relaxed" style={{ fontSize: "0.78rem" }}>
-                        {p.description}
-                      </p>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5">
-                      {p.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-teal rounded px-2 py-0.5"
-                          style={{ fontFamily: "var(--font-mono)", fontSize: "0.58rem", letterSpacing: "0.04em", background: "rgba(45,212,191,0.08)" }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
                   );
                 })}
               </div>
 
-              {/* Footer inside last section */}
-              <div
-                className="from-bottom d-4 mt-10 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-4 text-muted"
-                style={{ fontFamily: "var(--font-mono)", fontSize: "0.62rem" }}
-              >
+              <div className="from-bottom d-4 mt-10 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-4 text-muted text-xs">
                 <span>© 2026 Federico Barrera</span>
                 <div className="flex gap-5">
-                  <a href="mailto:federicobarroc@gmail.com" className="hover:text-amber transition-colors">
+                  <a href="mailto:federicobarroc@gmail.com" className="hover:text-text transition-colors">
                     federicobarroc@gmail.com
                   </a>
-                  <a href="https://github.com/fwr3d" target="_blank" rel="noreferrer" className="hover:text-amber transition-colors">
+                  <a href="https://github.com/fwr3d" target="_blank" rel="noreferrer" className="hover:text-text transition-colors">
                     github.com/fwr3d
                   </a>
                 </div>
