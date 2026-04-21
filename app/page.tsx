@@ -30,22 +30,28 @@ const PROJECTS = [
 
 const POSTS = [
   {
+    slug: "post-one",
     title: "Post title goes here",
     date: "Apr 2026",
     summary: "A short description of what this post is about. What did you learn, build, or figure out?",
     tag: "Thoughts",
+    rotate: "-2deg",
   },
   {
+    slug: "post-two",
     title: "Another post title",
     date: "Mar 2026",
     summary: "A short description of what this post is about. What did you learn, build, or figure out?",
     tag: "Build Log",
+    rotate: "1.5deg",
   },
   {
+    slug: "post-three",
     title: "One more thing you wrote about",
     date: "Feb 2026",
     summary: "A short description of what this post is about. What did you learn, build, or figure out?",
     tag: "Dev",
+    rotate: "-1deg",
   },
 ];
 
@@ -272,34 +278,35 @@ export default function Home() {
         <section id="writing" className="snap-section">
           <div className="section-inner">
             <div className="w-full max-w-[960px]">
-              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-8" style={{ letterSpacing: "0.18em" }}>
+              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-10" style={{ letterSpacing: "0.18em" }}>
                 Writing
               </p>
 
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-wrap gap-6 justify-start">
                 {POSTS.map((post, i) => (
-                  <div
-                    key={post.title}
-                    className={`from-${i % 2 === 0 ? "left" : "right"} group rounded-xl border border-border bg-surface p-5 flex flex-col sm:flex-row sm:items-start gap-4 cursor-default transition-colors duration-200 hover:border-[rgba(16,185,129,0.3)]`}
-                    style={{ animationDelay: `${i * 80}ms` }}
+                  <a
+                    key={post.slug}
+                    href={`/writing/${post.slug}`}
+                    className={`from-bottom paper-card group`}
+                    style={{
+                      animationDelay: `${i * 100}ms`,
+                      transform: `rotate(${post.rotate})`,
+                      display: "block",
+                      width: "220px",
+                      textDecoration: "none",
+                    }}
                   >
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span
-                          className="text-xs px-2 py-0.5 rounded-md text-emerald-400"
-                          style={{ background: "rgba(16,185,129,0.1)", fontSize: "0.68rem" }}
-                        >
-                          {post.tag}
-                        </span>
-                        <span className="text-xs text-muted">{post.date}</span>
-                      </div>
-                      <h3 className="font-semibold tracking-tight mb-1.5 group-hover:text-amber transition-colors" style={{ fontSize: "1rem" }}>
-                        {post.title}
-                      </h3>
-                      <p className="text-muted text-sm leading-relaxed">{post.summary}</p>
+                    {/* Staple */}
+                    <div className="paper-staple" />
+
+                    {/* Paper body */}
+                    <div className="paper-body">
+                      <span className="paper-tag">{post.tag}</span>
+                      <h3 className="paper-title">{post.title}</h3>
+                      <p className="paper-summary">{post.summary}</p>
+                      <span className="paper-date">{post.date}</span>
                     </div>
-                    <span className="text-muted group-hover:text-amber transition-colors text-lg shrink-0 mt-0.5">→</span>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
