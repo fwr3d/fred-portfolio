@@ -173,40 +173,40 @@ export default function Home() {
         </section>
 
         {/* ── Section 2: Tech Stack ── */}
-        <section id="stack" className="snap-section">
+        <section id="stack" className="snap-section" style={{ overflow: "hidden" }}>
           <div className="section-inner">
-            <div className="w-full max-w-[960px]">
-              {/* label — from top */}
+            <div className="w-full">
+              {/* label */}
               <div
-                className="from-top d-0 flex items-center gap-2 mb-8 text-muted"
+                className="from-top d-0 flex items-center gap-2 mb-10 text-muted max-w-[960px] mx-auto px-6 md:px-10"
                 style={{ fontFamily: "var(--font-mono)", fontSize: "0.65rem" }}
               >
                 <span className="text-amber text-base">#</span>
                 tech_stack.ts
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {TECH.map((tech, i) => {
-                  // Alternate directions: left column from left, right from right, middle pop
-                  const col = i % 4;
-                  const dir = col === 0 || col === 1 ? "from-left" : "from-right";
-                  return (
-                    <div
-                      key={tech.name}
-                      className={`${dir} rounded border border-border bg-surface px-4 py-3 flex items-center justify-between gap-2`}
-                      style={{ animationDelay: `${Math.floor(i / 4) * 80 + (i % 4) * 60}ms` }}
-                    >
-                      <span className="font-medium text-text" style={{ fontSize: "0.82rem" }}>
-                        {tech.name}
-                      </span>
-                      <span
-                        className="text-muted shrink-0"
-                        style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem", letterSpacing: "0.08em" }}
-                      >
-                        {tech.type}
-                      </span>
+
+              {/* Row 1 — scrolls left */}
+              <div className="from-bottom d-1 marquee-outer mb-3">
+                <div className="marquee-track">
+                  {[...TECH, ...TECH].map((tech, i) => (
+                    <div key={i} className="marquee-chip">
+                      <span className="text-text font-medium" style={{ fontSize: "0.85rem" }}>{tech.name}</span>
+                      <span className="text-amber" style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem" }}>{tech.type}</span>
                     </div>
-                  );
-                })}
+                  ))}
+                </div>
+              </div>
+
+              {/* Row 2 — scrolls right (reverse) */}
+              <div className="from-bottom d-2 marquee-outer">
+                <div className="marquee-track marquee-reverse">
+                  {[...TECH.slice().reverse(), ...TECH.slice().reverse()].map((tech, i) => (
+                    <div key={i} className="marquee-chip">
+                      <span className="text-text font-medium" style={{ fontSize: "0.85rem" }}>{tech.name}</span>
+                      <span className="text-amber" style={{ fontFamily: "var(--font-mono)", fontSize: "0.55rem" }}>{tech.type}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
