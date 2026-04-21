@@ -1,3 +1,5 @@
+import TechStack from "./components/TechStack";
+
 const PROJECTS = [
   {
     index: "01",
@@ -61,16 +63,6 @@ const LEARNING = [
   { topic: "Databases", detail: "SQL, relational modeling, indexing, and query optimization." },
 ];
 
-const TECH = [
-  { name: "TypeScript", type: "Language" },
-  { name: "JavaScript", type: "Language" },
-  { name: "React",      type: "Framework" },
-  { name: "Next.js",    type: "Framework" },
-  { name: "HTML / CSS", type: "Language" },
-  { name: "Tailwind",   type: "Styling" },
-  { name: "Node.js",    type: "Runtime" },
-  { name: "Git",        type: "Tooling" },
-];
 
 export default function Home() {
   return (
@@ -184,33 +176,14 @@ export default function Home() {
         </section>
 
         {/* ── Section 2: Tech Stack ── */}
-        <section id="stack" className="snap-section" style={{ overflow: "hidden" }}>
+        <section id="stack" className="snap-section">
           <div className="section-inner">
-            <div className="w-full">
-              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted text-center mb-10 max-w-[960px] mx-auto px-6" style={{ letterSpacing: "0.18em" }}>
+            <div className="w-full max-w-[960px]">
+              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-10" style={{ letterSpacing: "0.18em" }}>
                 Tech Stack
               </p>
-
-              <div className="from-bottom d-1 marquee-outer mb-3">
-                <div className="marquee-track">
-                  {[...TECH, ...TECH].map((tech, i) => (
-                    <div key={i} className="marquee-chip">
-                      <span className="text-text font-medium" style={{ fontSize: "0.88rem" }}>{tech.name}</span>
-                      <span className="text-amber text-xs">{tech.type}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="from-bottom d-2 marquee-outer">
-                <div className="marquee-track marquee-reverse">
-                  {[...TECH.slice().reverse(), ...TECH.slice().reverse()].map((tech, i) => (
-                    <div key={i} className="marquee-chip">
-                      <span className="text-text font-medium" style={{ fontSize: "0.88rem" }}>{tech.name}</span>
-                      <span className="text-amber text-xs">{tech.type}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="from-bottom d-1">
+                <TechStack />
               </div>
             </div>
           </div>
