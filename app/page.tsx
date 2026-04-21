@@ -56,9 +56,9 @@ const POSTS = [
 ];
 
 const LEARNING = [
-  { topic: "Topic you're learning", detail: "What specifically — a course, project, concept?" },
-  { topic: "Another thing", detail: "Where you're learning it or why" },
-  { topic: "One more", detail: "Context goes here" },
+  { topic: "Rust", detail: "Systems programming, memory safety, and ownership model." },
+  { topic: "System Design", detail: "Architecting scalable systems, trade-offs, and distributed patterns." },
+  { topic: "Databases", detail: "SQL, relational modeling, indexing, and query optimization." },
 ];
 
 const TECH = [
@@ -345,8 +345,18 @@ export default function Home() {
                 })}
               </div>
 
+              {/* Purdue note */}
+              <div className="from-bottom d-4 mt-10 flex items-center gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-amber shrink-0" />
+                <p className="text-muted text-sm">
+                  Starting CS at{" "}
+                  <span className="text-text font-medium">Purdue University</span>
+                  {" "}— Fall 2026
+                </p>
+              </div>
+
               {/* Footer in last section */}
-              <div className="from-bottom d-4 mt-12 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-4 text-muted text-xs">
+              <div className="from-bottom d-5 mt-8 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-4 text-muted text-xs">
                 <span>© 2026 Federico Barrera</span>
                 <div className="flex gap-5">
                   <a href="mailto:federicobarroc@gmail.com" className="hover:text-text transition-colors">
