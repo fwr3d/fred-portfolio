@@ -68,7 +68,7 @@ export default function Home() {
         <div className="flex gap-0 border border-border rounded-md overflow-hidden">
           {[
             { label: "github", href: "https://github.com/fwr3d" },
-            { label: "x.com",  href: "https://x.com/fbr0792" },
+
             { label: "email",  href: "mailto:federicobarroc@gmail.com" },
           ].map((l, i, arr) => (
             <a
