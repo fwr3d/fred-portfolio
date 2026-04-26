@@ -261,13 +261,14 @@ html, body {
   margin-top: auto;
 }
 
-/* Constellation node pulse */
-@keyframes node-pulse {
-  0%, 100% { opacity: 0.55; }
-  50%       { opacity: 1; }
+/* Post-it hover lift */
+.postit {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.constellation-node {
-  animation: node-pulse 3.5s ease-in-out infinite;
+.postit:hover {
+  transform: rotate(0deg) translateY(-10px) scale(1.06) !important;
+  z-index: 10;
+  box-shadow: 6px 16px 32px rgba(0,0,0,0.55) !important;
 }
 
 /* Project row hover */
