@@ -28,6 +28,16 @@ const PROJECTS = [
     github: "https://github.com/fwr3d/Atlas",
     demo: "https://atlas-sooty-psi.vercel.app",
   },
+  {
+    index: "04",
+    title: "Cascadia",
+    description:
+      "A physics-based tsunami simulator for the Cascadia Subduction Zone. Drop an earthquake epicenter, set magnitude and depth, and watch wave propagation and coastal impact estimates update in real time.",
+    tags: ["Simulation", "Maps", "Hackathon"],
+    github: "https://github.com/fwr3d/cascadia",
+    demo: "",
+    award: "Hackathon Winner",
+  },
 ];
 
 const POSTS = [
@@ -208,7 +218,15 @@ export default function Home() {
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-muted">{p.index}</span>
-                        <div className="flex gap-3 text-xs text-muted">
+                        <div className="flex items-center gap-3 text-xs text-muted">
+                          {p.award && (
+                            <span
+                              className="text-amber font-medium tracking-wide"
+                              style={{ fontSize: "0.65rem" }}
+                            >
+                              ★ {p.award}
+                            </span>
+                          )}
                           <a href={p.github} target="_blank" rel="noreferrer" className="hover:text-amber transition-colors">
                             GitHub ↗
                           </a>
