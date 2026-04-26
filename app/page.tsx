@@ -36,8 +36,17 @@ const PROJECTS = [
     tags: ["Simulation", "Maps", "Hackathon"],
     github: "https://github.com/fwr3d/cascadia",
     demo: "",
-    award: "Hackathon Winner",
+    award: "2nd · Ridge Hacks",
     starred: true,
+  },
+];
+
+const ACHIEVEMENTS = [
+  {
+    place: "2nd Place",
+    event: "Ridge Hacks",
+    detail: "Built Cascadia — a physics-based tsunami simulator for the Cascadia Subduction Zone.",
+    date: "Apr 2026",
   },
 ];
 
@@ -61,7 +70,7 @@ export default function Home() {
         </span>
 
         <div className="hidden md:flex items-center gap-7">
-          {[["home", "#home"], ["stack", "#stack"], ["work", "#work"], ["learning", "#learning"]].map(([label, href]) => (
+          {[["home", "#home"], ["stack", "#stack"], ["work", "#work"], ["achievements", "#achievements"], ["learning", "#learning"]].map(([label, href]) => (
             <a
               key={label}
               href={href}
@@ -286,7 +295,44 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Section 4: Currently Learning ── */}
+        {/* ── Section 4: Achievements ── */}
+        <section id="achievements" className="snap-section">
+          <div className="section-inner">
+            <div className="w-full max-w-[960px]">
+              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-8" style={{ letterSpacing: "0.18em" }}>
+                Achievements
+              </p>
+
+              <div className="flex flex-col gap-3">
+                {ACHIEVEMENTS.map((a, i) => (
+                  <div
+                    key={a.event}
+                    className="from-bottom project-row rounded-xl border border-border bg-surface p-5 flex items-center gap-6 transition-all duration-200"
+                    style={{ animationDelay: `${i * 100}ms` }}
+                  >
+                    <div
+                      className="shrink-0 w-14 h-14 rounded-lg flex items-center justify-center"
+                      style={{ background: "rgba(52,211,153,0.08)", border: "1px solid rgba(52,211,153,0.15)" }}
+                    >
+                      <span className="text-teal font-bold" style={{ fontSize: "1.25rem" }}>🏆</span>
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2.5 mb-1">
+                        <span className="text-teal font-semibold" style={{ fontSize: "0.8rem" }}>{a.place}</span>
+                        <span className="text-muted" style={{ fontSize: "0.75rem" }}>·</span>
+                        <span className="text-text font-semibold" style={{ fontSize: "0.9rem" }}>{a.event}</span>
+                      </div>
+                      <p className="text-muted text-sm leading-relaxed">{a.detail}</p>
+                    </div>
+                    <span className="text-muted shrink-0" style={{ fontSize: "0.72rem" }}>{a.date}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 5: Currently Learning ── */}
         <section id="learning" className="snap-section">
           <div className="section-inner">
             <div className="w-full max-w-[960px]">
