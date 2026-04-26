@@ -261,6 +261,19 @@ html, body {
   margin-top: auto;
 }
 
+/* Keyboard key press */
+.kbd-key {
+  transition: transform 0.07s ease, box-shadow 0.07s ease;
+}
+.kbd-key:hover {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #020605 !important;
+}
+.kbd-key:active {
+  transform: translateY(4px);
+  box-shadow: 0 0px 0 #020605 !important;
+}
+
 /* Project row hover */
 .project-row:hover {
   border-color: rgba(16, 185, 129, 0.25) !important;

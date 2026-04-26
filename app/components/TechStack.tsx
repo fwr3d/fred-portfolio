@@ -1,119 +1,65 @@
-const STACK = [
-  { key: "languages",  values: ["TypeScript", "JavaScript", "C#"] },
-  { key: "frameworks", values: ["React 19", "Next.js 15"] },
-  { key: "styling",    values: ["Tailwind CSS", "CSS Modules"] },
-  { key: "tools",      values: ["Git", "Node.js", "Vercel"] },
+const ROWS = [
+  { offset: "0px",  keys: ["TypeScript", "JavaScript", "C#"] },
+  { offset: "14px", keys: ["React 19", "Next.js 15"] },
+  { offset: "28px", keys: ["Tailwind CSS", "CSS Modules"] },
+  { offset: "14px", keys: ["Git", "Node.js", "Vercel"] },
 ];
 
-const lineCount = STACK.length + 2; // opening + rows + closing
+const KEY_STYLE: React.CSSProperties = {
+  background: "#0d1916",
+  border: "1px solid #1a2e2a",
+  borderRadius: "7px",
+  boxShadow: "0 4px 0 #020706",
+  padding: "10px 16px",
+  fontFamily: "var(--font-mono)",
+  fontSize: "0.72rem",
+  color: "#34D399",
+  letterSpacing: "0.02em",
+  cursor: "default",
+  userSelect: "none" as const,
+  whiteSpace: "nowrap" as const,
+};
 
 export default function TechStack() {
   return (
     <div
       style={{
-        fontFamily: "var(--font-mono)",
-        background: "#0a1512",
-        border: "1px solid #1E3330",
-        borderRadius: "10px",
-        overflow: "hidden",
-        width: "100%",
-        maxWidth: "580px",
+        background: "#070c0b",
+        border: "1px solid #162320",
+        borderRadius: "16px",
+        padding: "22px 22px 18px",
+        boxShadow: "0 12px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04)",
+        display: "inline-flex",
+        flexDirection: "column",
+        gap: "8px",
       }}
     >
-      {/* Editor chrome */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "6px",
-          padding: "10px 14px",
-          borderBottom: "1px solid #1E3330",
-          background: "#080e0d",
-        }}
-      >
-        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#FF5F57", display: "inline-block" }} />
-        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#FFBD2E", display: "inline-block" }} />
-        <span style={{ width: 10, height: 10, borderRadius: "50%", background: "#28C840", display: "inline-block" }} />
-        <span
+      {ROWS.map(({ offset, keys }, ri) => (
+        <div key={ri} style={{ display: "flex", gap: "8px", paddingLeft: offset }}>
+          {keys.map((key) => (
+            <div key={key} className="kbd-key" style={KEY_STYLE}>
+              {key}
+            </div>
+          ))}
+        </div>
+      ))}
+
+      {/* Spacebar */}
+      <div style={{ display: "flex", paddingLeft: "42px" }}>
+        <div
+          className="kbd-key"
           style={{
-            marginLeft: "10px",
-            fontSize: "0.65rem",
-            color: "#527068",
-            letterSpacing: "0.06em",
+            ...KEY_STYLE,
+            width: "220px",
+            textAlign: "center",
+            color: "#1a3530",
+            letterSpacing: "0.22em",
+            fontSize: "0.6rem",
           }}
         >
-          stack.ts
-        </span>
-      </div>
-
-      {/* Code body */}
-      <div style={{ padding: "18px 0 20px", lineHeight: "1.85", fontSize: "0.82rem" }}>
-
-        {/* Line: const stack = { */}
-        <CodeLine n={1}>
-          <Kw>const</Kw> <Va>stack</Va> <Pu>=</Pu> <Pu>{"{"}</Pu>
-        </CodeLine>
-
-        {STACK.map(({ key, values }, i) => (
-          <CodeLine key={key} n={i + 2}>
-            <span style={{ paddingLeft: "20px", display: "inline" }}>
-              <Key>{key}</Key><Pu>:</Pu>{" "}
-              <Pu>[</Pu>
-              {values.map((v, vi) => (
-                <span key={v}>
-                  <Str>"{v}"</Str>
-                  {vi < values.length - 1 && <Pu>, </Pu>}
-                </span>
-              ))}
-              <Pu>]</Pu><Pu>,</Pu>
-            </span>
-          </CodeLine>
-        ))}
-
-        {/* Line: } */}
-        <CodeLine n={lineCount}>
-          <Pu>{"}"}</Pu>
-          <span className="blink" style={{ color: "#34D399", marginLeft: "1px", fontWeight: 400 }}>▋</span>
-        </CodeLine>
-
+          FWR3D
+        </div>
       </div>
     </div>
   );
-}
-
-function CodeLine({ n, children }: { n: number; children: React.ReactNode }) {
-  return (
-    <div style={{ display: "flex", alignItems: "baseline" }}>
-      <span
-        style={{
-          width: "40px",
-          textAlign: "right",
-          paddingRight: "20px",
-          color: "#2a4040",
-          fontSize: "0.72rem",
-          userSelect: "none",
-          flexShrink: 0,
-        }}
-      >
-        {n}
-      </span>
-      <span>{children}</span>
-    </div>
-  );
-}
-
-function Kw({ children }: { children: React.ReactNode }) {
-  return <span style={{ color: "#C084FC" }}>{children}</span>;
-}
-function Va({ children }: { children: React.ReactNode }) {
-  return <span style={{ color: "#34D399" }}>{children}</span>;
-}
-function Key({ children }: { children: React.ReactNode }) {
-  return <span style={{ color: "#60A5FA" }}>{children}</span>;
-}
-function Str({ children }: { children: React.ReactNode }) {
-  return <span style={{ color: "#86EFAC" }}>{children}</span>;
-}
-function Pu({ children }: { children: React.ReactNode }) {
-  return <span style={{ color: "#527068" }}>{children}</span>;
 }
