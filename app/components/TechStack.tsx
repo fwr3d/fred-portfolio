@@ -1,8 +1,8 @@
 const STACK = [
   { key: "languages",  values: ["TypeScript", "JavaScript", "C#"] },
-  { key: "frameworks", values: ["React 19", "Next.js 15", "ASP.NET Core"] },
+  { key: "frameworks", values: ["React 19", "Next.js 15"] },
   { key: "styling",    values: ["Tailwind CSS", "CSS Modules"] },
-  { key: "tools",      values: ["Git", "Mapbox GL", "Node.js", "Vercel"] },
+  { key: "tools",      values: ["Git", "Node.js", "Vercel"] },
 ];
 
 const lineCount = STACK.length + 2; // opening + rows + closing
