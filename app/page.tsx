@@ -37,6 +37,7 @@ const PROJECTS = [
     github: "https://github.com/fwr3d/cascadia",
     demo: "",
     award: "Hackathon Winner",
+    starred: true,
   },
 ];
 
@@ -203,30 +204,77 @@ export default function Home() {
         <section id="work" className="snap-section">
           <div className="section-inner">
             <div className="w-full max-w-[960px]">
-              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-8" style={{ letterSpacing: "0.18em" }}>
+              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-6" style={{ letterSpacing: "0.18em" }}>
                 Selected Work
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {PROJECTS.map((p, i) => {
+              {/* Starred / featured project */}
+              {PROJECTS.filter(p => p.starred).map((p) => (
+                <div
+                  key={p.title}
+                  className="from-bottom d-1 project-row rounded-xl bg-surface p-5 flex flex-col gap-3 mb-4 transition-all duration-200"
+                  style={{ border: "1px solid rgba(52,211,153,0.22)" }}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-xs text-muted">{p.index}</span>
+                      {p.award && (
+                        <span
+                          className="text-teal font-semibold tracking-wide"
+                          style={{ fontSize: "0.62rem", letterSpacing: "0.1em" }}
+                        >
+                          ★ {p.award}
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex gap-3 text-xs text-muted">
+                      <a href={p.github} target="_blank" rel="noreferrer" className="hover:text-teal transition-colors">
+                        GitHub ↗
+                      </a>
+                      {p.demo && (
+                        <a href={p.demo} target="_blank" rel="noreferrer" className="hover:text-teal transition-colors">
+                          Demo ↗
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:flex-row sm:items-end gap-4">
+                    <div className="flex-1">
+                      <h3 className="font-semibold tracking-tight mb-2" style={{ fontSize: "1.1rem" }}>
+                        {p.title}
+                      </h3>
+                      <p className="text-muted leading-relaxed text-sm max-w-2xl">
+                        {p.description}
+                      </p>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5 sm:justify-end shrink-0">
+                      {p.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs text-teal rounded-md px-2 py-0.5"
+                          style={{ background: "rgba(52,211,153,0.1)", fontSize: "0.7rem" }}
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+
+              {/* Regular project grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {PROJECTS.filter(p => !p.starred).map((p, i) => {
                   const dirs = ["from-left", "from-bottom", "from-right"];
                   return (
                     <div
                       key={p.title}
                       className={`${dirs[i % 3]} project-row rounded-xl border border-border bg-surface p-5 flex flex-col gap-3 transition-all duration-200`}
-                      style={{ animationDelay: `${i * 100}ms` }}
+                      style={{ animationDelay: `${(i + 1) * 100}ms` }}
                     >
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-muted">{p.index}</span>
-                        <div className="flex items-center gap-3 text-xs text-muted">
-                          {p.award && (
-                            <span
-                              className="text-amber font-medium tracking-wide"
-                              style={{ fontSize: "0.65rem" }}
-                            >
-                              ★ {p.award}
-                            </span>
-                          )}
+                        <div className="flex gap-3 text-xs text-muted">
                           <a href={p.github} target="_blank" rel="noreferrer" className="hover:text-amber transition-colors">
                             GitHub ↗
                           </a>
