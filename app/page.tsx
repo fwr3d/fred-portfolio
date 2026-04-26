@@ -70,7 +70,7 @@ export default function Home() {
         </span>
 
         <div className="hidden md:flex items-center gap-7">
-          {[["home", "#home"], ["stack", "#stack"], ["work", "#work"], ["achievements", "#achievements"], ["learning", "#learning"]].map(([label, href]) => (
+          {[["home", "#home"], ["about", "#about"], ["stack", "#stack"], ["work", "#work"], ["achievements", "#achievements"], ["learning", "#learning"], ["contact", "#contact"]].map(([label, href]) => (
             <a
               key={label}
               href={href}
@@ -138,6 +138,14 @@ export default function Home() {
                   >
                     Get in touch
                   </a>
+                  <a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm text-text border border-border hover:border-[#444] transition-colors"
+                  >
+                    Resume ↗
+                  </a>
                 </div>
               </div>
 
@@ -147,10 +155,10 @@ export default function Home() {
                   Status
                 </p>
                 {[
-                  ["Role",   "Student"],
-                  ["School", "Purdue"],
-                  ["Start",  "Fall 2026"],
-                  ["Focus",  "CS"],
+                  ["Role",    "SWE Intern"],
+                  ["Company", "Huroca"],
+                  ["Period",  "Summer 2026"],
+                  ["School",  "Purdue → Fall 2026"],
                 ].map(([k, v]) => (
                   <div key={k} className="flex justify-between py-2.5 border-b border-border last:border-b-0">
                     <span className="text-muted text-sm">{k}</span>
@@ -159,7 +167,7 @@ export default function Home() {
                 ))}
                 <div className="flex items-center gap-2 mt-4 text-teal text-sm">
                   <span className="w-2 h-2 rounded-full bg-teal pulse-dot inline-block shrink-0" />
-                  Open to work
+                  Joining Huroca this summer
                 </div>
               </div>
             </div>
@@ -168,7 +176,54 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Section 2: Tech Stack ── */}
+        {/* ── Section 2: About ── */}
+        <section id="about" className="snap-section">
+          <div className="section-inner">
+            <div className="w-full max-w-[960px]">
+              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-10" style={{ letterSpacing: "0.18em" }}>
+                About
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12">
+                <div className="flex flex-col gap-5">
+                  <p className="from-left d-1 text-text leading-relaxed" style={{ fontSize: "0.95rem" }}>
+                    I'm Federico — a developer and builder heading to{" "}
+                    <span className="text-amber font-medium">Purdue University</span>{" "}
+                    to study Computer Science in the fall.
+                  </p>
+                  <p className="from-left d-2 text-muted leading-relaxed text-sm">
+                    I build web apps and tools that solve real problems — clean interfaces, real
+                    functionality, code that ships. My work ranges from developer utilities to
+                    data-heavy simulations. Most recently, I built Cascadia, a physics-based
+                    tsunami simulator that took 2nd at Ridge Hacks.
+                  </p>
+                  <p className="from-left d-3 text-muted leading-relaxed text-sm">
+                    This summer I'm joining{" "}
+                    <span className="text-text font-medium">Huroca</span>{" "}
+                    as a Software Engineering Intern. I'm drawn to the intersection of
+                    clean interfaces and real backend complexity — the kind of work where
+                    every decision has a reason.
+                  </p>
+                </div>
+
+                <div className="from-right d-2 flex flex-col gap-3">
+                  {[
+                    ["Internship", "Huroca · Summer 2026"],
+                    ["University", "Purdue · Fall 2026"],
+                    ["Focus",      "Computer Science"],
+                    ["Currently",  "TypeScript, Next.js, React"],
+                  ].map(([k, v]) => (
+                    <div key={k} className="flex flex-col gap-0.5 py-3 border-b border-border last:border-b-0">
+                      <span className="text-muted uppercase tracking-widest" style={{ fontSize: "0.6rem", letterSpacing: "0.14em" }}>{k}</span>
+                      <span className="text-text text-sm font-medium">{v}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 3: Tech Stack ── */}
         <section id="stack" className="snap-section">
           <div className="section-inner">
             <div className="w-full max-w-[960px]">
@@ -374,17 +429,58 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Footer in last section */}
-              <div className="from-bottom d-5 mt-8 pt-5 border-t border-border flex flex-wrap items-center justify-between gap-4 text-muted text-xs">
+            </div>
+          </div>
+        </section>
+
+        {/* ── Section 7: Contact ── */}
+        <section id="contact" className="snap-section">
+          <div className="section-inner">
+            <div className="w-full max-w-[960px]">
+              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-8" style={{ letterSpacing: "0.18em" }}>
+                Contact
+              </p>
+
+              <div className="from-left d-1 mb-10">
+                <p className="text-text font-semibold mb-2" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", lineHeight: 1.2 }}>
+                  Let's talk.
+                </p>
+                <p className="text-muted text-sm max-w-sm leading-relaxed">
+                  Open to conversations about engineering, interesting problems, and what comes after Purdue.
+                </p>
+              </div>
+
+              <div className="from-bottom d-2 flex flex-col gap-3 max-w-sm">
+                <a
+                  href="mailto:federicobarroc@gmail.com"
+                  className="flex items-center justify-between px-5 py-4 rounded-xl border border-border bg-surface hover:border-teal/30 hover:bg-surface2 transition-all duration-200 group"
+                >
+                  <span className="text-text text-sm font-medium">federicobarroc@gmail.com</span>
+                  <span className="text-muted group-hover:text-teal transition-colors text-sm">↗</span>
+                </a>
+                <a
+                  href="https://github.com/fwr3d"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between px-5 py-4 rounded-xl border border-border bg-surface hover:border-teal/30 hover:bg-surface2 transition-all duration-200 group"
+                >
+                  <span className="text-text text-sm font-medium">github.com/fwr3d</span>
+                  <span className="text-muted group-hover:text-teal transition-colors text-sm">↗</span>
+                </a>
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between px-5 py-4 rounded-xl border border-border bg-surface hover:border-teal/30 hover:bg-surface2 transition-all duration-200 group"
+                >
+                  <span className="text-text text-sm font-medium">Resume</span>
+                  <span className="text-muted group-hover:text-teal transition-colors text-sm">↓ PDF</span>
+                </a>
+              </div>
+
+              <div className="from-bottom d-4 mt-12 pt-5 border-t border-border flex items-center justify-between text-muted text-xs">
                 <span>© 2026 Federico Barrera</span>
-                <div className="flex gap-5">
-                  <a href="mailto:federicobarroc@gmail.com" className="hover:text-text transition-colors">
-                    federicobarroc@gmail.com
-                  </a>
-                  <a href="https://github.com/fwr3d" target="_blank" rel="noreferrer" className="hover:text-text transition-colors">
-                    github.com/fwr3d
-                  </a>
-                </div>
+                <span>Built with Next.js · Deployed on Vercel</span>
               </div>
             </div>
           </div>
