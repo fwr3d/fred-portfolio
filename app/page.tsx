@@ -41,33 +41,6 @@ const PROJECTS = [
   },
 ];
 
-const POSTS = [
-  {
-    slug: "building-cascadia",
-    title: "Building Cascadia in 48 Hours",
-    date: "Apr 2026",
-    summary: "How we built a physics-based tsunami simulator in a hackathon weekend — wave equations, live USGS data, 3D terrain — and somehow won.",
-    tag: "Build Log",
-    rotate: "-2deg",
-  },
-  {
-    slug: "on-typescript",
-    title: "TypeScript Made Me a Better Developer",
-    date: "Mar 2026",
-    summary: "I resisted TypeScript longer than I should have. Here's the bug that changed my mind and why I now reach for interfaces before logic.",
-    tag: "Dev",
-    rotate: "1.5deg",
-  },
-  {
-    slug: "ship-it",
-    title: "Ship It Anyway",
-    date: "Feb 2026",
-    summary: "Every project I've shipped has had something wrong with it. I shipped them anyway. On finishing things before you're ready.",
-    tag: "Thoughts",
-    rotate: "-1deg",
-  },
-];
-
 const LEARNING = [
   { topic: "Rust", detail: "Systems programming, memory safety, and ownership model." },
   { topic: "System Design", detail: "Architecting scalable systems, trade-offs, and distributed patterns." },
@@ -88,7 +61,7 @@ export default function Home() {
         </span>
 
         <div className="hidden md:flex items-center gap-7">
-          {[["home", "#home"], ["stack", "#stack"], ["work", "#work"], ["writing", "#writing"], ["learning", "#learning"]].map(([label, href]) => (
+          {[["home", "#home"], ["stack", "#stack"], ["work", "#work"], ["learning", "#learning"]].map(([label, href]) => (
             <a
               key={label}
               href={href}
@@ -313,46 +286,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Section 4: Writing ── */}
-        <section id="writing" className="snap-section">
-          <div className="section-inner">
-            <div className="w-full max-w-[960px]">
-              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-10" style={{ letterSpacing: "0.18em" }}>
-                Writing
-              </p>
-
-              <div className="flex flex-wrap gap-6 justify-start">
-                {POSTS.map((post, i) => (
-                  <a
-                    key={post.slug}
-                    href={`/writing/${post.slug}`}
-                    className={`from-bottom paper-card group`}
-                    style={{
-                      animationDelay: `${i * 100}ms`,
-                      transform: `rotate(${post.rotate})`,
-                      display: "block",
-                      width: "220px",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {/* Staple */}
-                    <div className="paper-staple" />
-
-                    {/* Paper body */}
-                    <div className="paper-body">
-                      <span className="paper-tag">{post.tag}</span>
-                      <h3 className="paper-title">{post.title}</h3>
-                      <p className="paper-summary">{post.summary}</p>
-                      <span className="paper-date">{post.date}</span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Section 5: Currently Learning ── */}
+        {/* ── Section 4: Currently Learning ── */}
         <section id="learning" className="snap-section">
           <div className="section-inner">
             <div className="w-full max-w-[960px]">
