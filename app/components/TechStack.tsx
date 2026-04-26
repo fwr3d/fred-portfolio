@@ -3,7 +3,6 @@ const STACK = [
   { category: "frameworks", items: ["React 19", "Next.js 15", "ASP.NET Core"] },
   { category: "styling",    items: ["Tailwind CSS", "CSS Modules"] },
   { category: "tools",      items: ["Git", "Mapbox GL", "Node.js", "Vercel"] },
-  { category: "learning",   items: ["Rust", "System Design", "SQL"] },
 ];
 
 export default function TechStack() {
