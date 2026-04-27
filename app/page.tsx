@@ -39,6 +39,15 @@ const PROJECTS = [
     award: "2nd · Ridge Hacks",
     starred: true,
   },
+  {
+    index: "05",
+    title: "Crane",
+    description:
+      "A full-stack job tracker with LinkedIn scraping, a kanban board with drag-and-drop stages, and streaming results — so listings appear progressively as pages load rather than all at once.",
+    tags: ["Full-Stack", "FastAPI", "Supabase"],
+    github: "https://github.com/fwr3d/crane",
+    demo: "",
+  },
 ];
 
 const ACHIEVEMENTS = [
