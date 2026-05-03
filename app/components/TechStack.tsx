@@ -1,22 +1,22 @@
 const NOTES = [
-  { label: "TypeScript",  color: "#fef08a", rotate: "-3deg",   pin: "#f87171" },
-  { label: "JavaScript",  color: "#fef08a", rotate: "2.5deg",  pin: "#60a5fa" },
-  { label: "C#",          color: "#bfdbfe", rotate: "-1.5deg", pin: "#34d399" },
-  { label: "React 19",    color: "#a5f3fc", rotate: "3.5deg",  pin: "#f87171" },
-  { label: "Next.js 15",  color: "#f1f5f9", rotate: "-2deg",   pin: "#a78bfa" },
-  { label: "Tailwind",    color: "#bfdbfe", rotate: "4deg",    pin: "#fbbf24" },
-  { label: "CSS Modules", color: "#fbcfe8", rotate: "-3.5deg", pin: "#34d399" },
-  { label: "Git",         color: "#fed7aa", rotate: "2deg",    pin: "#60a5fa" },
-  { label: "Node.js",     color: "#bbf7d0", rotate: "-1deg",   pin: "#f87171" },
-  { label: "Vercel",      color: "#f1f5f9", rotate: "3deg",    pin: "#fbbf24" },
+  { label: "TypeScript",  color: "#f5f5f5", rotate: "-3deg",   pin: "#737373" },
+  { label: "JavaScript",  color: "#e5e5e5", rotate: "2.5deg",  pin: "#737373" },
+  { label: "C#",          color: "#d4d4d4", rotate: "-1.5deg", pin: "#737373" },
+  { label: "React 19",    color: "#f5f5f5", rotate: "3.5deg",  pin: "#737373" },
+  { label: "Next.js 15",  color: "#e5e5e5", rotate: "-2deg",   pin: "#737373" },
+  { label: "Tailwind",    color: "#d4d4d4", rotate: "4deg",    pin: "#737373" },
+  { label: "CSS Modules", color: "#f5f5f5", rotate: "-3.5deg", pin: "#737373" },
+  { label: "Git",         color: "#e5e5e5", rotate: "2deg",    pin: "#737373" },
+  { label: "Node.js",     color: "#d4d4d4", rotate: "-1deg",   pin: "#737373" },
+  { label: "Vercel",      color: "#f5f5f5", rotate: "3deg",    pin: "#737373" },
 ];
 
 export default function TechStack() {
   return (
     <div
       style={{
-        background: "#0b100b",
-        border: "10px solid #4a2e14",
+        background: "#0f0f0f",
+        border: "10px solid #242424",
         borderRadius: "3px",
         boxShadow: "inset 0 0 80px rgba(0,0,0,0.5), 0 12px 40px rgba(0,0,0,0.6), inset 0 0 0 2px rgba(255,255,255,0.03)",
         padding: "36px 28px 28px",

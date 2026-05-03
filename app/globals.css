@@ -2,14 +2,14 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-bg:          #080E0D;
-  --color-surface:     #0F1A18;
-  --color-surface2:    #162320;
-  --color-border:      #1E3330;
-  --color-text:        #E4EDEA;
-  --color-muted:       #527068;
-  --color-amber:       #10B981;
-  --color-teal:        #34D399;
+  --color-bg:          #0a0a0a;
+  --color-surface:     #111111;
+  --color-surface2:    #181818;
+  --color-border:      #2a2a2a;
+  --color-text:        #f5f5f5;
+  --color-muted:       #8a8a8a;
+  --color-amber:       #ffffff;
+  --color-teal:        #d4d4d4;
 
   --font-sans: var(--font-grotesk), system-ui, sans-serif;
   --font-mono: var(--font-mono-var, var(--font-mono)), "Courier New", monospace;
@@ -31,39 +31,38 @@ body {
   height: 100vh;
   overflow-y: auto;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    radial-gradient(circle at top left, rgba(16, 185, 129, 0.12), transparent 28rem),
+    linear-gradient(rgba(255, 255, 255, 0.014) 1px, transparent 1px),
     var(--color-bg);
-  background-size: 100% 28px, auto, auto;
+  background-size: 100% 28px, auto;
 }
 
 .handbook-document {
   position: relative;
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  background: linear-gradient(180deg, rgba(15, 26, 24, 0.98), rgba(10, 16, 15, 0.98));
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.98), rgba(10, 10, 10, 0.98));
   box-shadow:
     0 40px 120px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(52, 211, 153, 0.025) inset;
+    0 0 0 1px rgba(255, 255, 255, 0.025) inset;
 }
 
 .handbook-prose {
-  --tw-prose-body: #b7c7c2;
-  --tw-prose-headings: #e4edea;
-  --tw-prose-lead: #d2ded9;
-  --tw-prose-links: #34d399;
-  --tw-prose-bold: #eef7f4;
-  --tw-prose-counters: #10b981;
-  --tw-prose-bullets: #34d399;
-  --tw-prose-hr: #1e3330;
-  --tw-prose-quotes: #e4edea;
-  --tw-prose-quote-borders: #10b981;
-  --tw-prose-captions: #527068;
-  --tw-prose-code: #34d399;
-  --tw-prose-pre-code: #e4edea;
-  --tw-prose-pre-bg: #080e0d;
-  --tw-prose-th-borders: #1e3330;
-  --tw-prose-td-borders: #1e3330;
+  --tw-prose-body: #c7c7c7;
+  --tw-prose-headings: #f5f5f5;
+  --tw-prose-lead: #e5e5e5;
+  --tw-prose-links: #ffffff;
+  --tw-prose-bold: #ffffff;
+  --tw-prose-counters: #d4d4d4;
+  --tw-prose-bullets: #d4d4d4;
+  --tw-prose-hr: #2a2a2a;
+  --tw-prose-quotes: #f5f5f5;
+  --tw-prose-quote-borders: #d4d4d4;
+  --tw-prose-captions: #8a8a8a;
+  --tw-prose-code: #ffffff;
+  --tw-prose-pre-code: #f5f5f5;
+  --tw-prose-pre-bg: #0a0a0a;
+  --tw-prose-th-borders: #2a2a2a;
+  --tw-prose-td-borders: #2a2a2a;
   font-size: 0.98rem;
   line-height: 1.82;
 }
@@ -234,8 +233,8 @@ html, body {
 
 /* Status pulse */
 @keyframes pulse {
-  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-  50%       { opacity: 0.7; box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.32); }
+  50%       { opacity: 0.7; box-shadow: 0 0 0 4px rgba(255, 255, 255, 0); }
 }
 .pulse-dot {
   animation: pulse 2s ease-in-out infinite;
@@ -311,7 +310,7 @@ html, body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #10B981;
+  color: #111;
   position: relative;
   z-index: 1;
 }
@@ -354,8 +353,8 @@ html, body {
 
 /* Project row hover */
 .project-row:hover {
-  border-color: rgba(16, 185, 129, 0.25) !important;
-  background: #132220;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  background: #181818;
 }
 .project-row:hover .project-preview {
   opacity: 1;

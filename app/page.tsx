@@ -102,7 +102,7 @@ export default function Home() {
           <a
             href="mailto:federicobarroc@gmail.com"
             className="text-sm text-bg font-medium rounded-md px-4 py-1.5 hover:opacity-90 transition-opacity"
-            style={{ background: "#10B981" }}
+            style={{ background: "#f5f5f5" }}
           >
             Email
           </a>
@@ -137,7 +137,7 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-bg hover:opacity-90 transition-opacity"
-                    style={{ background: "#10B981" }}
+                    style={{ background: "#f5f5f5" }}
                   >
                     GitHub ↗
                   </a>
@@ -259,7 +259,7 @@ export default function Home() {
                 <div
                   key={p.title}
                   className="from-bottom d-1 project-row rounded-xl bg-surface p-5 flex flex-col gap-3 mb-4 transition-all duration-200"
-                  style={{ border: "1px solid rgba(52,211,153,0.22)" }}
+                  style={{ border: "1px solid rgba(255,255,255,0.18)" }}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
@@ -298,7 +298,7 @@ export default function Home() {
                         <span
                           key={tag}
                           className="text-xs text-teal rounded-md px-2 py-0.5"
-                          style={{ background: "rgba(52,211,153,0.1)", fontSize: "0.7rem" }}
+                          style={{ background: "rgba(255,255,255,0.08)", fontSize: "0.7rem" }}
                         >
                           {tag}
                         </span>
@@ -344,7 +344,7 @@ export default function Home() {
                           <span
                             key={tag}
                             className="text-xs text-teal rounded-md px-2 py-0.5"
-                            style={{ background: "rgba(16,185,129,0.1)", fontSize: "0.7rem" }}
+                            style={{ background: "rgba(255,255,255,0.08)", fontSize: "0.7rem" }}
                           >
                             {tag}
                           </span>
@@ -376,9 +376,9 @@ export default function Home() {
                   >
                     <div
                       className="shrink-0 w-14 h-14 rounded-lg flex items-center justify-center"
-                      style={{ background: "rgba(52,211,153,0.08)", border: "1px solid rgba(52,211,153,0.15)" }}
+                      style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.14)" }}
                     >
-                      <span className="text-teal font-bold" style={{ fontSize: "1.25rem" }}>🏆</span>
+                      <span className="text-teal font-bold" style={{ fontSize: "1rem" }}>02</span>
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2.5 mb-1">
@@ -416,7 +416,7 @@ export default function Home() {
                       className={`${dirs[i % 3]} rounded-xl border border-border bg-surface p-5`}
                       style={{ animationDelay: `${i * 100}ms` }}
                     >
-                      <div className="w-8 h-8 rounded-lg bg-[rgba(16,185,129,0.12)] flex items-center justify-center mb-4">
+                      <div className="w-8 h-8 rounded-lg bg-[rgba(255,255,255,0.08)] flex items-center justify-center mb-4">
                         <span className="text-amber font-bold text-sm">{String(i + 1).padStart(2, "0")}</span>
                       </div>
                       <h3 className="font-semibold tracking-tight mb-2" style={{ fontSize: "0.95rem" }}>
