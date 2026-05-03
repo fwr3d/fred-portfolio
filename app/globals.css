@@ -31,8 +31,32 @@ body {
   height: 100vh;
   overflow-y: auto;
   background:
-    radial-gradient(circle at top left, rgba(79, 70, 229, 0.14), transparent 28rem),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    radial-gradient(circle at top left, rgba(79, 70, 229, 0.12), transparent 26rem),
     #0a0a0a;
+  background-size: 100% 28px, auto, auto;
+}
+
+.handbook-document {
+  position: relative;
+  border: 1px solid #27272a;
+  border-radius: 2px;
+  background:
+    linear-gradient(90deg, rgba(99, 102, 241, 0.16) 0, rgba(99, 102, 241, 0.16) 1px, transparent 1px),
+    linear-gradient(#101012, #0d0d0f);
+  box-shadow:
+    0 40px 120px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+}
+
+.handbook-document::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, transparent 0, transparent 5.4rem, rgba(99, 102, 241, 0.2) 5.4rem, rgba(99, 102, 241, 0.2) calc(5.4rem + 1px), transparent calc(5.4rem + 1px)),
+    repeating-linear-gradient(0deg, transparent 0, transparent 31px, rgba(255, 255, 255, 0.018) 31px, rgba(255, 255, 255, 0.018) 32px);
 }
 
 .handbook-prose {
@@ -52,17 +76,42 @@ body {
   --tw-prose-pre-bg: #111113;
   --tw-prose-th-borders: #3f3f46;
   --tw-prose-td-borders: #27272a;
+  font-size: 0.98rem;
+  line-height: 1.82;
+}
+
+.handbook-prose > h1:first-child {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  max-width: 38rem;
+  border-bottom: 1px solid #27272a;
+  padding-bottom: 1.4rem;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: 0;
 }
 
 .handbook-prose h2 {
   scroll-margin-top: 6rem;
   border-top: 1px solid #27272a;
-  padding-top: 2rem;
+  margin-top: 3.25rem;
+  padding-top: 2.25rem;
+  font-size: 1.35rem;
+  letter-spacing: 0;
 }
 
 .handbook-prose h2:first-child {
   border-top: 0;
   padding-top: 0;
+}
+
+.handbook-prose p {
+  text-align: left;
+}
+
+.handbook-prose hr {
+  margin: 2.5rem 0;
+  border-color: #27272a;
 }
 
 .handbook-prose code::before,
