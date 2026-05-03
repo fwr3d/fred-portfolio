@@ -41,22 +41,10 @@ body {
   position: relative;
   border: 1px solid #27272a;
   border-radius: 2px;
-  background:
-    linear-gradient(90deg, rgba(99, 102, 241, 0.16) 0, rgba(99, 102, 241, 0.16) 1px, transparent 1px),
-    linear-gradient(#101012, #0d0d0f);
+  background: linear-gradient(#101012, #0d0d0f);
   box-shadow:
     0 40px 120px rgba(0, 0, 0, 0.5),
     0 0 0 1px rgba(255, 255, 255, 0.02) inset;
-}
-
-.handbook-document::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, transparent 0, transparent 5.4rem, rgba(99, 102, 241, 0.2) 5.4rem, rgba(99, 102, 241, 0.2) calc(5.4rem + 1px), transparent calc(5.4rem + 1px)),
-    repeating-linear-gradient(0deg, transparent 0, transparent 31px, rgba(255, 255, 255, 0.018) 31px, rgba(255, 255, 255, 0.018) 32px);
 }
 
 .handbook-prose {
@@ -83,10 +71,10 @@ body {
 .handbook-prose > h1:first-child {
   margin-top: 0;
   margin-bottom: 2rem;
-  max-width: 38rem;
+  max-width: 48rem;
   border-bottom: 1px solid #27272a;
   padding-bottom: 1.4rem;
-  font-size: clamp(2rem, 7vw, 3.5rem);
+  font-size: clamp(2.3rem, 5vw, 4.5rem);
   line-height: 1.02;
   letter-spacing: 0;
 }
