@@ -195,7 +195,7 @@ export default function Home() {
               <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12">
                 <div className="flex flex-col gap-5">
                   <p className="from-left d-1 text-text leading-relaxed" style={{ fontSize: "0.95rem" }}>
-                    I'm Federico — a developer and builder heading to{" "}
+                    I&apos;m Federico — a developer and builder heading to{" "}
                     <span className="text-amber font-medium">Purdue University</span>{" "}
                     to study Computer Science in the fall.
                   </p>
@@ -206,9 +206,9 @@ export default function Home() {
                     tsunami simulator that took 2nd at Ridge Hacks.
                   </p>
                   <p className="from-left d-3 text-muted leading-relaxed text-sm">
-                    This summer I'm joining{" "}
+                    This summer I&apos;m joining{" "}
                     <span className="text-text font-medium">Huroca</span>{" "}
-                    as a Software Engineering Intern. I'm drawn to the intersection of
+                    as a Software Engineering Intern. I&apos;m drawn to the intersection of
                     clean interfaces and real backend complexity — the kind of work where
                     every decision has a reason.
                   </p>
@@ -404,7 +404,7 @@ export default function Home() {
                 Currently Learning
               </p>
               <p className="from-top d-1 text-muted text-sm mb-10 max-w-sm">
-                What I'm exploring, reading, or building right now.
+                What I&apos;m exploring, reading, or building right now.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -452,7 +452,7 @@ export default function Home() {
 
               <div className="from-left d-1 mb-10">
                 <p className="text-text font-semibold mb-2" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", lineHeight: 1.2 }}>
-                  Let's talk.
+                  Let&apos;s talk.
                 </p>
                 <p className="text-muted text-sm max-w-sm leading-relaxed">
                   Open to conversations about engineering, interesting problems, and what comes after Purdue.

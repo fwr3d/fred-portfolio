@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-bg:          #080E0D;
@@ -24,6 +25,49 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.handbook-scroll {
+  height: 100vh;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at top left, rgba(79, 70, 229, 0.14), transparent 28rem),
+    #0a0a0a;
+}
+
+.handbook-prose {
+  --tw-prose-body: #a1a1aa;
+  --tw-prose-headings: #f4f4f5;
+  --tw-prose-lead: #d4d4d8;
+  --tw-prose-links: #a5b4fc;
+  --tw-prose-bold: #fafafa;
+  --tw-prose-counters: #818cf8;
+  --tw-prose-bullets: #6366f1;
+  --tw-prose-hr: #27272a;
+  --tw-prose-quotes: #e4e4e7;
+  --tw-prose-quote-borders: #4f46e5;
+  --tw-prose-captions: #71717a;
+  --tw-prose-code: #c7d2fe;
+  --tw-prose-pre-code: #e4e4e7;
+  --tw-prose-pre-bg: #111113;
+  --tw-prose-th-borders: #3f3f46;
+  --tw-prose-td-borders: #27272a;
+}
+
+.handbook-prose h2 {
+  scroll-margin-top: 6rem;
+  border-top: 1px solid #27272a;
+  padding-top: 2rem;
+}
+
+.handbook-prose h2:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.handbook-prose code::before,
+.handbook-prose code::after {
+  content: "";
 }
 
 
