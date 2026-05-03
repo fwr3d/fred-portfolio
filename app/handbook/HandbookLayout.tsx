@@ -19,10 +19,10 @@ export function HandbookLayout({
     <main className="handbook-scroll text-zinc-100">
       <div className="mx-auto flex min-h-screen w-full max-w-7xl flex-col px-4 py-5 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between border-b border-zinc-800/80 pb-4 text-sm">
-          <Link href="/" className="font-semibold tracking-tight text-zinc-100 transition-colors hover:text-indigo-300">
-            Federico <span className="text-indigo-400">Barrera</span>
+          <Link href="/" className="font-semibold tracking-tight text-text transition-colors hover:text-teal">
+            Federico <span className="text-amber">Barrera</span>
           </Link>
-          <Link href="/writing" className="text-zinc-500 transition-colors hover:text-zinc-200">
+          <Link href="/writing" className="text-muted transition-colors hover:text-text">
             Writing
           </Link>
         </nav>
@@ -32,7 +32,7 @@ export function HandbookLayout({
             <header className="border-b border-zinc-800/90 px-6 py-7 sm:px-12 sm:py-9 lg:px-16">
               <p
                 data-handbook-heading
-                className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-indigo-300"
+                className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-teal"
               >
                 {eyebrow}
               </p>
@@ -42,7 +42,7 @@ export function HandbookLayout({
               >
                 {title}
               </h1>
-              <p data-handbook-heading className="mt-4 max-w-2xl text-sm leading-6 text-zinc-400 sm:text-base">
+              <p data-handbook-heading className="mt-4 max-w-3xl text-sm leading-6 text-zinc-400 sm:text-base">
                 {summary}
               </p>
               {meta ? (

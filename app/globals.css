@@ -31,39 +31,39 @@ body {
   height: 100vh;
   overflow-y: auto;
   background:
-    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    radial-gradient(circle at top left, rgba(79, 70, 229, 0.12), transparent 26rem),
-    #0a0a0a;
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    radial-gradient(circle at top left, rgba(16, 185, 129, 0.12), transparent 28rem),
+    var(--color-bg);
   background-size: 100% 28px, auto, auto;
 }
 
 .handbook-document {
   position: relative;
-  border: 1px solid #27272a;
-  border-radius: 2px;
-  background: linear-gradient(#101012, #0d0d0f);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: linear-gradient(180deg, rgba(15, 26, 24, 0.98), rgba(10, 16, 15, 0.98));
   box-shadow:
     0 40px 120px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+    0 0 0 1px rgba(52, 211, 153, 0.025) inset;
 }
 
 .handbook-prose {
-  --tw-prose-body: #a1a1aa;
-  --tw-prose-headings: #f4f4f5;
-  --tw-prose-lead: #d4d4d8;
-  --tw-prose-links: #a5b4fc;
-  --tw-prose-bold: #fafafa;
-  --tw-prose-counters: #818cf8;
-  --tw-prose-bullets: #6366f1;
-  --tw-prose-hr: #27272a;
-  --tw-prose-quotes: #e4e4e7;
-  --tw-prose-quote-borders: #4f46e5;
-  --tw-prose-captions: #71717a;
-  --tw-prose-code: #c7d2fe;
-  --tw-prose-pre-code: #e4e4e7;
-  --tw-prose-pre-bg: #111113;
-  --tw-prose-th-borders: #3f3f46;
-  --tw-prose-td-borders: #27272a;
+  --tw-prose-body: #b7c7c2;
+  --tw-prose-headings: #e4edea;
+  --tw-prose-lead: #d2ded9;
+  --tw-prose-links: #34d399;
+  --tw-prose-bold: #eef7f4;
+  --tw-prose-counters: #10b981;
+  --tw-prose-bullets: #34d399;
+  --tw-prose-hr: #1e3330;
+  --tw-prose-quotes: #e4edea;
+  --tw-prose-quote-borders: #10b981;
+  --tw-prose-captions: #527068;
+  --tw-prose-code: #34d399;
+  --tw-prose-pre-code: #e4edea;
+  --tw-prose-pre-bg: #080e0d;
+  --tw-prose-th-borders: #1e3330;
+  --tw-prose-td-borders: #1e3330;
   font-size: 0.98rem;
   line-height: 1.82;
 }
@@ -71,17 +71,17 @@ body {
 .handbook-prose > h1:first-child {
   margin-top: 0;
   margin-bottom: 2rem;
-  max-width: 48rem;
-  border-bottom: 1px solid #27272a;
+  max-width: 56rem;
+  border-bottom: 1px solid var(--color-border);
   padding-bottom: 1.4rem;
-  font-size: clamp(2.3rem, 5vw, 4.5rem);
-  line-height: 1.02;
+  font-size: clamp(2.1rem, 4.5vw, 4rem);
+  line-height: 1.05;
   letter-spacing: 0;
 }
 
 .handbook-prose h2 {
   scroll-margin-top: 6rem;
-  border-top: 1px solid #27272a;
+  border-top: 1px solid var(--color-border);
   margin-top: 3.25rem;
   padding-top: 2.25rem;
   font-size: 1.35rem;
@@ -99,7 +99,7 @@ body {
 
 .handbook-prose hr {
   margin: 2.5rem 0;
-  border-color: #27272a;
+  border-color: var(--color-border);
 }
 
 .handbook-prose code::before,

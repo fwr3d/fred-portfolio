@@ -20,26 +20,26 @@ export const metadata: Metadata = {
 
 export default function WritingPage() {
   return (
-    <main className="min-h-screen overflow-y-auto bg-[#0a0a0a] text-zinc-100">
+    <main className="min-h-screen overflow-y-auto bg-bg text-text">
       <div className="mx-auto flex min-h-screen w-full max-w-5xl flex-col px-5 py-6 sm:px-8 lg:px-10">
-        <nav className="flex items-center justify-between border-b border-zinc-800/90 pb-4 text-sm">
-          <Link href="/" className="font-semibold tracking-tight text-zinc-100 transition-colors hover:text-indigo-300">
-            Federico <span className="text-indigo-400">Barrera</span>
+        <nav className="flex items-center justify-between border-b border-border pb-4 text-sm">
+          <Link href="/" className="font-semibold tracking-tight text-text transition-colors hover:text-teal">
+            Federico <span className="text-amber">Barrera</span>
           </Link>
-          <Link href="/" className="text-zinc-500 transition-colors hover:text-zinc-200">
+          <Link href="/" className="text-muted transition-colors hover:text-text">
             Back home
           </Link>
         </nav>
 
         <section className="flex flex-1 flex-col justify-center py-16 sm:py-20">
           <header className="mb-12 max-w-2xl">
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300">
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-teal">
               Writing
             </p>
-            <h1 className="text-4xl font-bold leading-tight tracking-tight text-zinc-50 sm:text-5xl">
+            <h1 className="text-4xl font-bold leading-tight tracking-tight text-text sm:text-5xl">
               Essays, handbooks, and field notes.
             </h1>
-            <p className="mt-5 text-base leading-7 text-zinc-400 sm:text-lg">
+            <p className="mt-5 text-base leading-7 text-muted sm:text-lg">
               A small library of how I think about software, systems, and building with taste.
             </p>
           </header>
@@ -49,26 +49,26 @@ export default function WritingPage() {
               <Link
                 key={piece.href}
                 href={piece.href}
-                className="group rounded-lg border border-zinc-800 bg-zinc-950/70 p-5 transition-colors hover:border-indigo-500/60 hover:bg-zinc-950"
+                className="group rounded-lg border border-border bg-surface p-5 transition-colors hover:border-teal/40 hover:bg-surface2"
               >
                 <div className="mb-4 flex flex-wrap items-center gap-3 text-xs">
-                  <span className="font-semibold uppercase tracking-[0.16em] text-indigo-300">
+                  <span className="font-semibold uppercase tracking-[0.16em] text-teal">
                     {piece.eyebrow}
                   </span>
-                  <span className="text-zinc-700">/</span>
-                  <span className="font-mono text-zinc-500">{piece.date}</span>
+                  <span className="text-border">/</span>
+                  <span className="font-mono text-muted">{piece.date}</span>
                 </div>
 
                 <div className="grid gap-5 sm:grid-cols-[1fr_auto] sm:items-start">
                   <div>
-                    <h2 className="text-xl font-semibold tracking-tight text-zinc-100 group-hover:text-indigo-200">
+                    <h2 className="text-xl font-semibold tracking-tight text-text group-hover:text-teal">
                       {piece.title}
                     </h2>
-                    <p className="mt-3 max-w-2xl text-sm leading-6 text-zinc-400">
+                    <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
                       {piece.description}
                     </p>
                   </div>
-                  <span className="text-sm text-zinc-500 transition-colors group-hover:text-indigo-300">
+                  <span className="text-sm text-muted transition-colors group-hover:text-teal">
                     Read
                   </span>
                 </div>
@@ -77,7 +77,7 @@ export default function WritingPage() {
                   {piece.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-md border border-zinc-800 px-2.5 py-1 text-xs text-zinc-500"
+                      className="rounded-md border border-border px-2.5 py-1 text-xs text-muted"
                     >
                       {tag}
                     </span>

@@ -73,12 +73,12 @@ function PatternCard({
   detail: string;
 }) {
   return (
-    <div className="rounded-lg border border-zinc-800 bg-zinc-950/70 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.22)] transition-colors hover:border-indigo-500/50">
+    <div className="rounded-lg border border-border bg-surface/80 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.22)] transition-colors hover:border-teal/40 hover:bg-surface2/80">
       <div className="mb-3 flex items-center justify-between gap-3">
-        <span className="font-mono text-xs text-indigo-300">{String(index + 1).padStart(2, "0")}</span>
-        <span className="h-px flex-1 bg-zinc-800" />
+        <span className="font-mono text-xs text-teal">{String(index + 1).padStart(2, "0")}</span>
+        <span className="h-px flex-1 bg-border" />
       </div>
-      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-600">{category}</p>
+      <p className="mb-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted">{category}</p>
       <h3 className="m-0 text-base font-semibold tracking-tight text-zinc-100">{name}</h3>
       <p className="mt-2 text-sm leading-6 text-zinc-400">{detail}</p>
     </div>
