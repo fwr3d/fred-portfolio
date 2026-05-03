@@ -79,7 +79,7 @@ export default function Home() {
         </span>
 
         <div className="hidden md:flex items-center gap-7">
-          {[["home", "#home"], ["about", "#about"], ["stack", "#stack"], ["work", "#work"], ["achievements", "#achievements"], ["learning", "#learning"], ["writing", "/handbook"], ["contact", "#contact"]].map(([label, href]) => (
+          {[["home", "#home"], ["about", "#about"], ["stack", "#stack"], ["work", "#work"], ["achievements", "#achievements"], ["learning", "#learning"], ["writing", "/writing"], ["contact", "#contact"]].map(([label, href]) => (
             <a
               key={label}
               href={href}
