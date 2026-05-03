@@ -107,10 +107,8 @@ body {
 }
 
 
-/* ── Full-page scroll snap ── */
 html, body {
-  height: 100%;
-  overflow: hidden;
+  min-height: 100%;
 }
 
 .snap-container {

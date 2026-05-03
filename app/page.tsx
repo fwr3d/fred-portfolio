@@ -1,501 +1,241 @@
-import TechStack from "./components/TechStack";
-
 const PROJECTS = [
   {
-    index: "01",
+    title: "Cascadia",
+    description:
+      "A physics-based tsunami simulator for the Cascadia Subduction Zone with interactive inputs for magnitude, depth, and coastal impact estimates.",
+    tags: ["Simulation", "Maps", "Hackathon"],
+    github: "https://github.com/fwr3d/cascadia",
+    demo: "",
+    note: "2nd Place - Ridge Hacks",
+  },
+  {
+    title: "Crane",
+    description:
+      "A full-stack job tracker with LinkedIn scraping, kanban stages, and streaming results so listings appear progressively as pages load.",
+    tags: ["Full-Stack", "FastAPI", "Supabase"],
+    github: "https://github.com/fwr3d/crane",
+    demo: "",
+  },
+  {
     title: "Draftroom",
     description:
-      "A fantasy football draft simulator to practice picks, test strategies, and prepare for draft day.",
+      "A fantasy football draft simulator for practicing picks, testing strategies, and preparing for draft day.",
     tags: ["React", "Simulation", "Sports"],
     github: "https://github.com/fwr3d/draftroom",
     demo: "https://fwr3d.github.io/draftroom",
   },
   {
-    index: "02",
     title: "Pennywise",
     description:
-      "A budget manager for tracking spending, organizing categories, and staying on top of personal finances.",
+      "A personal budget manager for tracking spending, organizing categories, and staying on top of finances.",
     tags: ["Finance", "Budgeting", "Web App"],
     github: "https://github.com/fwr3d/Pennywise",
     demo: "https://pennywise-v1.vercel.app",
   },
   {
-    index: "03",
     title: "Atlas",
     description:
-      "A personal dashboard bringing together tasks and notes in one place to keep day-to-day work organized.",
+      "A personal dashboard that brings together tasks and notes in one place for day-to-day organization.",
     tags: ["Dashboard", "Tasks", "Notes"],
     github: "https://github.com/fwr3d/Atlas",
     demo: "https://atlas-sooty-psi.vercel.app",
   },
-  {
-    index: "04",
-    title: "Cascadia",
-    description:
-      "A physics-based tsunami simulator for the Cascadia Subduction Zone. Drop an earthquake epicenter, set magnitude and depth, and watch wave propagation and coastal impact estimates update in real time.",
-    tags: ["Simulation", "Maps", "Hackathon"],
-    github: "https://github.com/fwr3d/cascadia",
-    demo: "",
-    award: "2nd · Ridge Hacks",
-    starred: true,
-  },
-  {
-    index: "05",
-    title: "Crane",
-    description:
-      "A full-stack job tracker with LinkedIn scraping, a kanban board with drag-and-drop stages, and streaming results — so listings appear progressively as pages load rather than all at once.",
-    tags: ["Full-Stack", "FastAPI", "Supabase"],
-    github: "https://github.com/fwr3d/crane",
-    demo: "",
-  },
 ];
 
-const ACHIEVEMENTS = [
-  {
-    place: "2nd Place",
-    event: "Ridge Hacks",
-    detail: "Built Cascadia — a physics-based tsunami simulator for the Cascadia Subduction Zone.",
-    date: "Apr 2026",
-  },
+const SKILLS = [
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "Node.js",
+  "Python",
+  "FastAPI",
+  "Supabase",
+  "Git",
 ];
-
-const LEARNING = [
-  { topic: "Rust", detail: "Systems programming, memory safety, and ownership model." },
-  { topic: "System Design", detail: "Architecting scalable systems, trade-offs, and distributed patterns." },
-  { topic: "Databases", detail: "SQL, relational modeling, indexing, and query optimization." },
-];
-
 
 export default function Home() {
   return (
-    <>
-      {/* ── Fixed Nav ── */}
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 py-4 border-b border-border"
-        style={{ background: "rgba(8,14,13,0.88)", backdropFilter: "blur(12px)" }}
-      >
-        <span className="font-semibold tracking-tight text-text" style={{ fontSize: "0.95rem" }}>
-          Federico <span className="text-amber">Barrera</span>
-        </span>
-
-        <div className="hidden md:flex items-center gap-7">
-          {[["home", "#home"], ["about", "#about"], ["stack", "#stack"], ["work", "#work"], ["achievements", "#achievements"], ["learning", "#learning"], ["writing", "/writing"], ["contact", "#contact"]].map(([label, href]) => (
-            <a
-              key={label}
-              href={href}
-              className="text-muted hover:text-text transition-colors duration-150 text-sm capitalize tracking-wide"
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-
-        <div className="flex gap-2">
-          <a
-            href="https://github.com/fwr3d"
-            target="_blank"
-            rel="noreferrer"
-            className="text-sm text-muted hover:text-text border border-border rounded-md px-4 py-1.5 hover:border-[#444] transition-colors"
-          >
-            GitHub
+    <main className="min-h-screen bg-bg text-text">
+      <div className="mx-auto w-full max-w-5xl px-5 py-6 sm:px-8 lg:px-10">
+        <nav className="flex items-center justify-between border-b border-border pb-4 text-sm">
+          <a href="#home" className="font-semibold tracking-tight text-text">
+            Federico Barrera
           </a>
-          <a
-            href="mailto:federicobarroc@gmail.com"
-            className="text-sm text-bg font-medium rounded-md px-4 py-1.5 hover:opacity-90 transition-opacity"
-            style={{ background: "#f5f5f5" }}
-          >
-            Email
-          </a>
-        </div>
-      </nav>
-
-      {/* ── Scroll container ── */}
-      <div className="snap-container">
-
-        {/* ── Section 1: Hero ── */}
-        <section id="home" className="snap-section">
-          <div className="section-inner">
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_220px] gap-12 items-center w-full max-w-[960px]">
-              <div>
-                <p className="from-top d-0 text-sm text-muted mb-4 tracking-wide uppercase" style={{ fontSize: "0.7rem", letterSpacing: "0.14em" }}>
-                  Developer · Builder · Student
-                </p>
-                <h1
-                  className="from-left d-1 font-bold leading-[1.02] tracking-tight mb-5 text-text"
-                  style={{ fontSize: "clamp(42px, 7vw, 72px)" }}
-                >
-                  Federico<br />
-                  <span className="text-amber">Barrera</span>
-                </h1>
-                <p className="from-left d-2 text-muted leading-relaxed mb-8 max-w-[380px]" style={{ fontSize: "0.95rem" }}>
-                  I build developer-focused web apps and tools — clean interfaces,
-                  real functionality, code that ships.
-                </p>
-                <div className="from-bottom d-3 flex gap-3 flex-wrap">
-                  <a
-                    href="https://github.com/fwr3d"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-sm text-bg hover:opacity-90 transition-opacity"
-                    style={{ background: "#f5f5f5" }}
-                  >
-                    GitHub ↗
-                  </a>
-                  <a
-                    href="mailto:federicobarroc@gmail.com"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm text-text border border-border hover:border-[#444] transition-colors"
-                  >
-                    Get in touch
-                  </a>
-                  <a
-                    href="/resume.pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm text-text border border-border hover:border-[#444] transition-colors"
-                  >
-                    Resume ↗
-                  </a>
-                </div>
-              </div>
-
-              {/* Status card */}
-              <div className="from-right d-2 rounded-xl border border-border p-5 bg-surface">
-                <p className="text-xs text-muted uppercase tracking-widest mb-4" style={{ fontSize: "0.6rem" }}>
-                  Status
-                </p>
-                {[
-                  ["Role",    "SWE Intern"],
-                  ["Company", "Huroca"],
-                  ["Period",  "Summer 2026"],
-                  ["School",  "Purdue → Fall 2026"],
-                ].map(([k, v]) => (
-                  <div key={k} className="flex justify-between py-2.5 border-b border-border last:border-b-0">
-                    <span className="text-muted text-sm">{k}</span>
-                    <span className="text-teal text-sm font-medium">{v}</span>
-                  </div>
-                ))}
-                <div className="flex items-center gap-2 mt-4 text-teal text-sm">
-                  <span className="w-2 h-2 rounded-full bg-teal pulse-dot inline-block shrink-0" />
-                  Joining Huroca this summer
-                </div>
-              </div>
-            </div>
-
-            <div className="scroll-hint">scroll ↓</div>
+          <div className="hidden items-center gap-7 text-muted md:flex">
+            <a href="#work" className="transition-colors hover:text-text">Work</a>
+            <a href="/writing" className="transition-colors hover:text-text">Writing</a>
+            <a href="#contact" className="transition-colors hover:text-text">Contact</a>
           </div>
-        </section>
+        </nav>
 
-        {/* ── Section 2: About ── */}
-        <section id="about" className="snap-section">
-          <div className="section-inner">
-            <div className="w-full max-w-[960px]">
-              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-10" style={{ letterSpacing: "0.18em" }}>
-                About
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_280px] gap-12">
-                <div className="flex flex-col gap-5">
-                  <p className="from-left d-1 text-text leading-relaxed" style={{ fontSize: "0.95rem" }}>
-                    I&apos;m Federico — a developer and builder heading to{" "}
-                    <span className="text-amber font-medium">Purdue University</span>{" "}
-                    to study Computer Science in the fall.
-                  </p>
-                  <p className="from-left d-2 text-muted leading-relaxed text-sm">
-                    I build web apps and tools that solve real problems — clean interfaces, real
-                    functionality, code that ships. My work ranges from developer utilities to
-                    data-heavy simulations. Most recently, I built Cascadia, a physics-based
-                    tsunami simulator that took 2nd at Ridge Hacks.
-                  </p>
-                  <p className="from-left d-3 text-muted leading-relaxed text-sm">
-                    This summer I&apos;m joining{" "}
-                    <span className="text-text font-medium">Huroca</span>{" "}
-                    as a Software Engineering Intern. I&apos;m drawn to the intersection of
-                    clean interfaces and real backend complexity — the kind of work where
-                    every decision has a reason.
-                  </p>
-                </div>
-
-                <div className="from-right d-2 flex flex-col gap-3">
-                  {[
-                    ["Internship", "Huroca · Summer 2026"],
-                    ["University", "Purdue · Fall 2026"],
-                    ["Focus",      "Computer Science"],
-                    ["Currently",  "TypeScript, Next.js, React"],
-                  ].map(([k, v]) => (
-                    <div key={k} className="flex flex-col gap-0.5 py-3 border-b border-border last:border-b-0">
-                      <span className="text-muted uppercase tracking-widest" style={{ fontSize: "0.6rem", letterSpacing: "0.14em" }}>{k}</span>
-                      <span className="text-text text-sm font-medium">{v}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+        <section id="home" className="grid min-h-[72vh] items-center gap-12 py-20 md:grid-cols-[1fr_18rem]">
+          <div>
+            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-muted">
+              Software Engineering Intern / CS Student
+            </p>
+            <h1 className="max-w-2xl text-5xl font-bold leading-[1.02] tracking-tight text-text sm:text-6xl">
+              I build clean, useful software.
+            </h1>
+            <p className="mt-6 max-w-xl text-base leading-7 text-muted">
+              I am Federico Barrera, a developer focused on web apps, simulations, and tools with clear interfaces and reliable systems.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href="#work"
+                className="inline-flex rounded-md bg-text px-5 py-2.5 text-sm font-semibold text-bg transition-opacity hover:opacity-90"
+              >
+                View work
+              </a>
+              <a
+                href="mailto:federicobarroc@gmail.com"
+                className="inline-flex rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-text transition-colors hover:border-text"
+              >
+                Contact
+              </a>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-text transition-colors hover:border-text"
+              >
+                Resume
+              </a>
             </div>
           </div>
-        </section>
 
-        {/* ── Section 3: Tech Stack ── */}
-        <section id="stack" className="snap-section">
-          <div className="section-inner">
-            <div className="w-full max-w-[960px]">
-              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-10" style={{ letterSpacing: "0.18em" }}>
-                Tech Stack
-              </p>
-              <div className="from-bottom d-1">
-                <TechStack />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ── Section 3: Projects ── */}
-        <section id="work" className="snap-section">
-          <div className="section-inner">
-            <div className="w-full max-w-[960px]">
-              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-6" style={{ letterSpacing: "0.18em" }}>
-                Selected Work
-              </p>
-
-              {/* Starred / featured project */}
-              {PROJECTS.filter(p => p.starred).map((p) => (
-                <div
-                  key={p.title}
-                  className="from-bottom d-1 project-row rounded-xl bg-surface p-5 flex flex-col gap-3 mb-4 transition-all duration-200"
-                  style={{ border: "1px solid rgba(255,255,255,0.18)" }}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      <span className="text-xs text-muted">{p.index}</span>
-                      {p.award && (
-                        <span
-                          className="text-teal font-semibold tracking-wide"
-                          style={{ fontSize: "0.62rem", letterSpacing: "0.1em" }}
-                        >
-                          ★ {p.award}
-                        </span>
-                      )}
-                    </div>
-                    <div className="flex gap-3 text-xs text-muted">
-                      <a href={p.github} target="_blank" rel="noreferrer" className="hover:text-teal transition-colors">
-                        GitHub ↗
-                      </a>
-                      {p.demo && (
-                        <a href={p.demo} target="_blank" rel="noreferrer" className="hover:text-teal transition-colors">
-                          Demo ↗
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:items-end gap-4">
-                    <div className="flex-1">
-                      <h3 className="font-semibold tracking-tight mb-2" style={{ fontSize: "1.1rem" }}>
-                        {p.title}
-                      </h3>
-                      <p className="text-muted leading-relaxed text-sm max-w-2xl">
-                        {p.description}
-                      </p>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5 sm:justify-end shrink-0">
-                      {p.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-xs text-teal rounded-md px-2 py-0.5"
-                          style={{ background: "rgba(255,255,255,0.08)", fontSize: "0.7rem" }}
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
+          <div className="rounded-lg border border-border bg-surface p-5">
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted">
+              Current
+            </p>
+            <div className="space-y-3 text-sm">
+              {[
+                ["Role", "SWE Intern"],
+                ["Company", "Huroca"],
+                ["School", "Purdue CS"],
+                ["Focus", "Full-stack web"],
+              ].map(([label, value]) => (
+                <div key={label} className="flex justify-between gap-4 border-b border-border pb-3 last:border-b-0 last:pb-0">
+                  <span className="text-muted">{label}</span>
+                  <span className="font-medium text-text">{value}</span>
                 </div>
               ))}
-
-              {/* Regular project grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {PROJECTS.filter(p => !p.starred).map((p, i) => {
-                  const dirs = ["from-left", "from-bottom", "from-right"];
-                  return (
-                    <div
-                      key={p.title}
-                      className={`${dirs[i % 3]} project-row rounded-xl border border-border bg-surface p-5 flex flex-col gap-3 transition-all duration-200`}
-                      style={{ animationDelay: `${(i + 1) * 100}ms` }}
-                    >
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-muted">{p.index}</span>
-                        <div className="flex gap-3 text-xs text-muted">
-                          <a href={p.github} target="_blank" rel="noreferrer" className="hover:text-amber transition-colors">
-                            GitHub ↗
-                          </a>
-                          {p.demo && (
-                            <a href={p.demo} target="_blank" rel="noreferrer" className="hover:text-amber transition-colors">
-                              Demo ↗
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="font-semibold tracking-tight mb-2" style={{ fontSize: "1rem" }}>
-                          {p.title}
-                        </h3>
-                        <p className="text-muted leading-relaxed text-sm">
-                          {p.description}
-                        </p>
-                      </div>
-                      <div className="flex flex-wrap gap-1.5">
-                        {p.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-xs text-teal rounded-md px-2 py-0.5"
-                            style={{ background: "rgba(255,255,255,0.08)", fontSize: "0.7rem" }}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-
             </div>
           </div>
         </section>
 
-        {/* ── Section 4: Achievements ── */}
-        <section id="achievements" className="snap-section">
-          <div className="section-inner">
-            <div className="w-full max-w-[960px]">
-              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-8" style={{ letterSpacing: "0.18em" }}>
-                Achievements
+        <section id="work" className="border-t border-border py-16">
+          <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-muted">
+                Selected Work
               </p>
+              <h2 className="text-3xl font-bold tracking-tight text-text">Projects</h2>
+            </div>
+            <a
+              href="https://github.com/fwr3d"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-muted transition-colors hover:text-text"
+            >
+              GitHub
+            </a>
+          </div>
 
-              <div className="flex flex-col gap-3">
-                {ACHIEVEMENTS.map((a, i) => (
-                  <div
-                    key={a.event}
-                    className="from-bottom project-row rounded-xl border border-border bg-surface p-5 flex items-center gap-6 transition-all duration-200"
-                    style={{ animationDelay: `${i * 100}ms` }}
-                  >
-                    <div
-                      className="shrink-0 w-14 h-14 rounded-lg flex items-center justify-center"
-                      style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.14)" }}
-                    >
-                      <span className="text-teal font-bold" style={{ fontSize: "1rem" }}>02</span>
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2.5 mb-1">
-                        <span className="text-teal font-semibold" style={{ fontSize: "0.8rem" }}>{a.place}</span>
-                        <span className="text-muted" style={{ fontSize: "0.75rem" }}>·</span>
-                        <span className="text-text font-semibold" style={{ fontSize: "0.9rem" }}>{a.event}</span>
-                      </div>
-                      <p className="text-muted text-sm leading-relaxed">{a.detail}</p>
-                    </div>
-                    <span className="text-muted shrink-0" style={{ fontSize: "0.72rem" }}>{a.date}</span>
+          <div className="divide-y divide-border border-y border-border">
+            {PROJECTS.map((project) => (
+              <article key={project.title} className="grid gap-5 py-7 md:grid-cols-[12rem_1fr_auto] md:items-start">
+                <div>
+                  <h3 className="font-semibold text-text">{project.title}</h3>
+                  {project.note ? <p className="mt-1 text-xs text-muted">{project.note}</p> : null}
+                </div>
+                <div>
+                  <p className="max-w-2xl text-sm leading-6 text-muted">{project.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="rounded border border-border px-2 py-1 text-xs text-muted">
+                        {tag}
+                      </span>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
+                <div className="flex gap-4 text-sm text-muted md:justify-end">
+                  <a href={project.github} target="_blank" rel="noreferrer" className="transition-colors hover:text-text">
+                    Code
+                  </a>
+                  {project.demo ? (
+                    <a href={project.demo} target="_blank" rel="noreferrer" className="transition-colors hover:text-text">
+                      Live
+                    </a>
+                  ) : null}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="grid gap-12 border-t border-border py-16 md:grid-cols-2">
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-muted">
+              About
+            </p>
+            <p className="max-w-xl text-sm leading-7 text-muted">
+              I am heading to Purdue University for Computer Science and currently building with TypeScript, Next.js, React, and backend tools. I care about simple interfaces, clear systems, and software that is easy to understand after it ships.
+            </p>
+          </div>
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-muted">
+              Stack
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {SKILLS.map((skill) => (
+                <span key={skill} className="rounded border border-border px-3 py-1.5 text-sm text-muted">
+                  {skill}
+                </span>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* ── Section 5: Currently Learning ── */}
-        <section id="learning" className="snap-section">
-          <div className="section-inner">
-            <div className="w-full max-w-[960px]">
-              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-2" style={{ letterSpacing: "0.18em" }}>
-                Currently Learning
-              </p>
-              <p className="from-top d-1 text-muted text-sm mb-10 max-w-sm">
-                What I&apos;m exploring, reading, or building right now.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {LEARNING.map((item, i) => {
-                  const dirs = ["from-left", "from-bottom", "from-right"];
-                  return (
-                    <div
-                      key={item.topic}
-                      className={`${dirs[i % 3]} rounded-xl border border-border bg-surface p-5`}
-                      style={{ animationDelay: `${i * 100}ms` }}
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-[rgba(255,255,255,0.08)] flex items-center justify-center mb-4">
-                        <span className="text-amber font-bold text-sm">{String(i + 1).padStart(2, "0")}</span>
-                      </div>
-                      <h3 className="font-semibold tracking-tight mb-2" style={{ fontSize: "0.95rem" }}>
-                        {item.topic}
-                      </h3>
-                      <p className="text-muted text-sm leading-relaxed">{item.detail}</p>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {/* Purdue note */}
-              <div className="from-bottom d-4 mt-10 flex items-center gap-3">
-                <div className="w-1.5 h-1.5 rounded-full bg-amber shrink-0" />
-                <p className="text-muted text-sm">
-                  Starting CS at{" "}
-                  <span className="text-text font-medium">Purdue University</span>
-                  {" "}— Fall 2026
-                </p>
-              </div>
-
-            </div>
+        <section className="grid gap-6 border-t border-border py-16 md:grid-cols-[1fr_18rem]">
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-muted">
+              Writing
+            </p>
+            <h2 className="text-3xl font-bold tracking-tight text-text">Intent-Driven Development</h2>
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
+              My handbook on using AI coding agents without losing architectural control.
+            </p>
+          </div>
+          <div className="flex items-start md:justify-end">
+            <a href="/writing" className="rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-text transition-colors hover:border-text">
+              Read writing
+            </a>
           </div>
         </section>
 
-        {/* ── Section 7: Contact ── */}
-        <section id="contact" className="snap-section">
-          <div className="section-inner">
-            <div className="w-full max-w-[960px]">
-              <p className="from-top d-0 text-xs uppercase tracking-widest text-muted mb-8" style={{ letterSpacing: "0.18em" }}>
-                Contact
-              </p>
-
-              <div className="from-left d-1 mb-10">
-                <p className="text-text font-semibold mb-2" style={{ fontSize: "clamp(1.4rem, 3vw, 2rem)", lineHeight: 1.2 }}>
-                  Let&apos;s talk.
-                </p>
-                <p className="text-muted text-sm max-w-sm leading-relaxed">
-                  Open to conversations about engineering, interesting problems, and what comes after Purdue.
-                </p>
-              </div>
-
-              <div className="from-bottom d-2 flex flex-col gap-3 max-w-sm">
-                <a
-                  href="mailto:federicobarroc@gmail.com"
-                  className="flex items-center justify-between px-5 py-4 rounded-xl border border-border bg-surface hover:border-teal/30 hover:bg-surface2 transition-all duration-200 group"
-                >
-                  <span className="text-text text-sm font-medium">federicobarroc@gmail.com</span>
-                  <span className="text-muted group-hover:text-teal transition-colors text-sm">↗</span>
-                </a>
-                <a
-                  href="https://github.com/fwr3d"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-between px-5 py-4 rounded-xl border border-border bg-surface hover:border-teal/30 hover:bg-surface2 transition-all duration-200 group"
-                >
-                  <span className="text-text text-sm font-medium">github.com/fwr3d</span>
-                  <span className="text-muted group-hover:text-teal transition-colors text-sm">↗</span>
-                </a>
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center justify-between px-5 py-4 rounded-xl border border-border bg-surface hover:border-teal/30 hover:bg-surface2 transition-all duration-200 group"
-                >
-                  <span className="text-text text-sm font-medium">Resume</span>
-                  <span className="text-muted group-hover:text-teal transition-colors text-sm">↓ PDF</span>
-                </a>
-              </div>
-
-              <div className="from-bottom d-4 mt-12 pt-5 border-t border-border flex items-center justify-between text-muted text-xs">
-                <span>© 2026 Federico Barrera</span>
-                <span>Built with Next.js · Deployed on Vercel</span>
-              </div>
-            </div>
+        <section id="contact" className="border-t border-border py-16">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-muted">
+            Contact
+          </p>
+          <h2 className="text-3xl font-bold tracking-tight text-text">Let&apos;s talk.</h2>
+          <div className="mt-6 flex flex-col gap-3 text-sm text-muted sm:flex-row sm:gap-6">
+            <a href="mailto:federicobarroc@gmail.com" className="transition-colors hover:text-text">
+              federicobarroc@gmail.com
+            </a>
+            <a href="https://github.com/fwr3d" target="_blank" rel="noreferrer" className="transition-colors hover:text-text">
+              github.com/fwr3d
+            </a>
+            <a href="/resume.pdf" target="_blank" rel="noreferrer" className="transition-colors hover:text-text">
+              Resume
+            </a>
           </div>
         </section>
 
+        <footer className="border-t border-border py-6 text-xs text-muted">
+          2026 Federico Barrera
+        </footer>
       </div>
-    </>
+    </main>
   );
 }
