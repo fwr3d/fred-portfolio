@@ -64,7 +64,6 @@ export default function Home() {
           </a>
           <div className="hidden items-center gap-7 text-muted md:flex">
             <a href="#work" className="transition-colors hover:text-text">Work</a>
-            <a href="/writing" className="transition-colors hover:text-text">Writing</a>
             <a href="#contact" className="transition-colors hover:text-text">Contact</a>
           </div>
         </nav>
@@ -194,23 +193,6 @@ export default function Home() {
                 </span>
               ))}
             </div>
-          </div>
-        </section>
-
-        <section className="grid gap-6 border-t border-border py-16 md:grid-cols-[1fr_18rem]">
-          <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-muted">
-              Writing
-            </p>
-            <h2 className="text-3xl font-bold tracking-tight text-text">Intent-Driven Development</h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-muted">
-              My handbook on using AI coding agents without losing architectural control.
-            </p>
-          </div>
-          <div className="flex items-start md:justify-end">
-            <a href="/writing" className="rounded-md border border-border px-5 py-2.5 text-sm font-semibold text-text transition-colors hover:border-text">
-              Read writing
-            </a>
           </div>
         </section>
 
